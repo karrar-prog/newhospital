@@ -23,8 +23,10 @@
             <div class="ui hidden divider"></div>
             <div class="ui five item blue inverted menu">
                 <a href="/patient" class="item">Patients</a>
-                <a href="/patient/report" class="item">Report</a>
-                <a href="/patient/simple-report" class="item">Simple Report</a>
+                @if(isset($_SESSION["USER_TYPE"]) && intval($_SESSION["USER_TYPE"]) == 1)
+                    <a href="/patient/report" class="item">Report</a>
+                    <a href="/patient/simple-report" class="item">Simple Report</a>
+                @endif
                 <a href="/patient/exist" class="item">Check Exist</a>
                 <a href="/logout" class="item">Logout</a>
             </div>

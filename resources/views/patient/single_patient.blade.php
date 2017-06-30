@@ -58,11 +58,11 @@
                 <tr><td>SD</td><td>{{$patient["SD"]}}</td></tr>
                 <tr><td>Status</td><td>{{$patient["Status"]}}</td></tr>
                 <tr><td>Diagnose</td><td>{{$patient["Diagnose"]}}</td></tr>
-                <tr><td>Diagnose Method</td><td>{{$patient["DiagnoseMethod"]}}</td></tr>
+                <tr><td>Way Of Diagnoses</td><td>{{$patient["DiagnoseMethod"]}}</td></tr>
                 <tr><td>Disease Type</td><td>{{$patient["DiseaseType"]}}</td></tr>
                 <tr><td>Disease Reason</td><td>{{$patient["DiseaseReason"]}}</td></tr>
                 <tr><td>Doctor Name</td><td>{{$patient["DoctorName"]}}</td></tr>
-                <tr><td>Liver Bioposy</td><td>{{$patient["LiverBioposy"]}}</td></tr>
+                <tr><td>Liver-Biopsy</td><td>{{$patient["LiverBioposy"]}}</td></tr>
                 <tr><td>Fibroscan</td><td>{{$patient["Fibroscan"]}}</td></tr>
                 <tr><td>DM</td><td>{{$patient["DM"]}}</td></tr>
                 <tr><td>CRF</td><td>{{$patient["CRF"]}}</td></tr>

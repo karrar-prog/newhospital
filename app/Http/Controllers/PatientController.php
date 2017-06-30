@@ -5,8 +5,12 @@ namespace App\Http\Controllers;
 use App\hospital\patient\report\PatientReporter;
 use App\Model\AllVisit;
 use App\Model\Patient;
+use App\Model\Visit;
+use Carbon\Carbon;
+use DateTime;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Session;
 
 class PatientController extends Controller
 {
@@ -193,6 +197,31 @@ class PatientController extends Controller
         $patient->PersonalID = Input::get("PersonalID" , "");
     }
 
+    private function fillPatientFromInput2($patient)
+    {
+        $patient->Name = Input::get("patientName" , "");
+        $patient->FileNumber = Input::get("fileNumber" , "");
+        $patient->Phone = Input::get("phone" , "");
+        $patient->Age = Input::get("age" , "");
+        $patient->Gender = Input::get("gender" , "");
+        $patient->Address = Input::get("address" , "");
+        $patient->Work = Input::get("work" , "");
+        $patient->SD = Input::get("sd" , "");
+        $patient->Status = Input::get("status" , "");
+        $patient->Diagnose = Input::get("diagnose" , "");
+        $patient->DiagnoseMethod = Input::get("diagnoseMethod" , "");
+        $patient->DiseaseType = Input::get("diseaseType" , "");
+        $patient->DiseaseReason = Input::get("diseaseReason" , "");
+        $patient->DoctorName = Input::get("doctorName" , "");
+        $patient->LiverBioposy = Input::get("liverBioposy" , "");
+        $patient->Fibroscan = Input::get("fibroscan" , "");
+        $patient->DM = Input::get("dm" , "");
+        $patient->CRF = Input::get("crf" , "");
+        $patient->RegisterDate = Carbon::now("Asia/Baghdad");
+        $patient->HospitalName = Input::get("hospitalName" , "");
+        $patient->PersonalID = Input::get("personalId" , "");
+    }
+
     public function showSimpleReport()
     {
         if (!isset($_SESSION["Login"]) || $_SESSION["Login"] != true)
@@ -226,6 +255,73 @@ class PatientController extends Controller
         $result = $reporter->findSimple();
 
         return view("patient.simple_report_result" , ["result" => $result]);
+    }
+
+    public function showAddNew()
+    {
+        return view("patient.add_patient");
+    }
+
+    public function addNew()
+    {
+        $patient = new Patient();
+        $this->fillPatientFromInput2($patient);
+
+        try
+        {
+            $success = $patient->save();
+
+            $this->handleVisit("first" , $patient);
+            $this->handleVisit("last" , $patient);
+
+            Session::flash("success" , $success);
+            if ($success)
+                return redirect()->back();
+            else
+                return redirect()->back()->withInput(Input::all());
+        }
+        catch (QueryException $e)
+        {
+            dump(Input::all());
+            dump($patient);
+            dd($e);
+            Session::flash("success" , false);
+            return redirect()->back()->withInput(Input::all());
+        }
+    }
+
+    private function handleVisit($vt , $patient)
+    {
+        if (!$patient)
+            return;
+
+        $pcr = Input::get("{$vt}PCR" , "");
+
+        $treatment1 = Input::get("{$vt}Treatment1" , "");
+        $treatment2 = Input::get("{$vt}Treatment2" , "");
+        $date = Input::get("{$vt}Date" , Carbon::now("Asia/Baghdad"));
+
+        $visit = new AllVisit();
+        $visit->Patient_ID = $patient->ID;
+        $visit->PCR = $pcr;
+        $visit->Treatment1 = $treatment1;
+        $visit->Treatment2 = $treatment2;
+        $visit->Date = $date;
+        $visit->save();
+
+        if (strcmp($pcr , "Not detected") == 0)
+            $pcr = "";
+
+        if (!empty(trim($pcr)))
+        {
+            $singleVisit = new Visit();
+            $singleVisit->Patient_ID = $patient->ID;
+            $singleVisit->PCR = $pcr;
+            $singleVisit->Treatment1 = $treatment1;
+            $singleVisit->Treatment2 = $treatment2;
+            $singleVisit->Date = $date;
+            $singleVisit->save();
+        }
     }
 
 }

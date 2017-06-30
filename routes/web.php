@@ -23,11 +23,14 @@ Route::get('/patient/exist', "PatientController@showExist");
 Route::post('/patient/exist', "PatientController@exist");
 
 
+Route::get('/patient/add-new', "PatientController@showAddNew");
+Route::post('/patient/add-new', "PatientController@addNew");
+
+
 Route::get('/', "LoginController@main");
 Route::get('/login', "LoginController@showLogin");
 Route::get('/logout', "LoginController@logout");
 Route::post('/login', "LoginController@login");
-
 
 Route::get('/patient/simple-report', "PatientController@showSimpleReport");
 Route::post('/patient/simple-report', "PatientController@simpleReport");

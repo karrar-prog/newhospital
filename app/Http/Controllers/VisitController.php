@@ -22,6 +22,7 @@ class VisitController extends Controller
             return ["success" => false];
 
         $pcr = Input::get("PCR" , "");
+
         $treatment1 = Input::get("Treatment1" , "");
         $treatment2 = Input::get("Treatment2" , "");
         $date = Input::get("Date" , Carbon::now("Asia/Baghdad"));
@@ -33,6 +34,9 @@ class VisitController extends Controller
         $visit->Treatment2 = $treatment2;
         $visit->Date = new DateTime();
         $visit->save();
+
+        if (strcmp($pcr , "Not detected") == 0)
+            $pcr = "";
 
         if (!empty(trim($pcr)))
         {

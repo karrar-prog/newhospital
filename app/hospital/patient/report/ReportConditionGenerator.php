@@ -80,6 +80,9 @@ class ReportConditionGenerator
             case "dateFrom" : return new SimpleConditionItem("RegisterDate" , ">=" , $value);
             case "dateTo" : return new SimpleConditionItem("RegisterDate" , "<=" , $value);
 
+            case "firstPCR" : return new SimpleConditionItem("CAST(FirstPCR AS UNSIGNED)" , ">=" , $value);
+            case "lastPCR" : return new SimpleConditionItem("CAST(LastPCR AS UNSIGNED)" , "<=" , $value);
+
             default : return null;
         }
     }
