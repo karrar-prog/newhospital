@@ -19,20 +19,30 @@
 
 
     @if(isset($_SESSION["Login"]) && $_SESSION["Login"] == true)
-        <div class="ui container">
-            <div class="ui hidden divider"></div>
-            <div class="ui five item blue inverted menu">
-                <a href="/patient" class="item">Patients</a>
-                @if(isset($_SESSION["USER_TYPE"]) && intval($_SESSION["USER_TYPE"]) == 1)
+        @if(isset($_SESSION["USER_TYPE"]) && intval($_SESSION["USER_TYPE"]) == 1)
+            <div class="ui container">
+                <div class="ui hidden divider"></div>
+                <div class="ui six item blue inverted menu">
+                    <a href="/patient" class="item">Patients</a>
                     <a href="/patient/report" class="item">Report</a>
                     <a href="/patient/simple-report" class="item">Simple Report</a>
-                @endif
-                <a href="/patient/exist" class="item">Check Exist</a>
-                <a href="/logout" class="item">Logout</a>
+                    <a href="/patient/add-new" class="item">Add Patient</a>
+                    <a href="/patient/exist" class="item">Check Exist</a>
+                    <a href="/logout" class="item">Logout</a>
+                </div>
             </div>
-        </div>
+        @else
+            <div class="ui container">
+                <div class="ui hidden divider"></div>
+                <div class="ui four item blue inverted menu">
+                    <a href="/patient" class="item">Patients</a>
+                    <a href="/patient/add-new" class="item">Add Patient</a>
+                    <a href="/patient/exist" class="item">Check Exist</a>
+                    <a href="/logout" class="item">Logout</a>
+                </div>
+            </div>
+        @endif
     @endif
-
 
 @yield("content")
 

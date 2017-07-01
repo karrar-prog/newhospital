@@ -175,6 +175,35 @@ Add Patient
 
 <script>
     $(".ui.dropdown").dropdown();
+
+    $('.ui.form')
+            .form({
+                fields: {
+                    patientName     : 'empty',
+                    fileNumber   : 'empty',
+                    doctorName : 'empty',
+                    phone : 'empty',
+                    age   : 'empty',
+                    gender    : 'empty' ,
+                    address    : 'empty' ,
+                    work    : 'empty' ,
+                    sd    : 'empty' ,
+                    status    : 'empty' ,
+                    diagnose    : 'empty' ,
+                    diagnoseMethod    : 'empty' ,
+                    diseaseType    : 'empty' ,
+                    diseaseReason    : 'empty' ,
+                    liverBioposy    : 'empty' ,
+                    fibroscan    : 'empty' ,
+                    dm    : 'empty' ,
+                    crf    : 'empty' ,
+                    personalId    : 'empty' ,
+                    hospital    : 'empty'
+
+                }
+            });
+
+
 </script>
 
 @endsection
