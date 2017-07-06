@@ -160,7 +160,7 @@ class PatientController extends Controller
         }
 
         $personalId = Input::get("PersonalID" , "");
-        $address = Input::get("Address" , "");
+        $address = Input::get("address" , "");
 
         $patient = Patient::where("PersonalID" , $personalId)->where("Address" , $address)->get();
 

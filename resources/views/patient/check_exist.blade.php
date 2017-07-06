@@ -35,10 +35,8 @@
                 <label>Personal ID</label>
                 <input name="PersonalID" type="text">
             </div>
-            <div class="field">
-                <label>Address</label>
-                <input name="Address" type="text">
-            </div>
+
+            @include('dropdown.address')
 
             <button class="ui large blue button">Check Existence</button>
 
