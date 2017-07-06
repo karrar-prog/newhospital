@@ -1,11 +1,11 @@
 <div class="field">
-    <label> Diagnose </label>
+    <label> Diagnosis </label>
     <div class="ui selection dropdown">
-        <input type="hidden" name="diagnose">
+        <input id="diagnose" type="hidden" name="diagnose">
         <i class="dropdown icon"></i>
-        <div class="default text">Diagnose</div>
+        <div class="default text">Diagnosis</div>
         <div class="menu">
-            <div class="item" data-value="VBV">VBV</div>
+            <div class="item" data-value="HBV">HBV</div>
             <div class="item" data-value="HCV">HCV</div>
             <div class="item" data-value="Both">Both</div>
         </div>

@@ -259,7 +259,8 @@ class PatientController extends Controller
 
     public function showAddNew()
     {
-        return view("patient.add_patient");
+        $doctors = Patient::distinct()->select("DoctorName AS Name")->get(['DoctorName AS Name'])->toArray();
+        return view("patient.add_patient" , ["doctors" => $doctors]);
     }
 
     public function addNew()

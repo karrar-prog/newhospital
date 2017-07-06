@@ -17,15 +17,15 @@ Add Patient
     </div>
 
     @if(\Illuminate\Support\Facades\Session::has("success"))
-            @if(\Illuminate\Support\Facades\Session::get("success"))
-                <div class="ui green inverted segment"><div class="ui large left aligned success header">
-                    Patient Had Been Added.
-                </div></div>
-            @else
-                <div class="ui red inverted segment"><div class="ui large left aligned header">
-                    Patient Didn't Added! , Check If Patient Is Already Exist.
-                </div></div>
-            @endif
+        @if(\Illuminate\Support\Facades\Session::get("success"))
+            <div class="ui green inverted segment"><div class="ui large left aligned success header">
+                Patient Had Been Added.
+            </div></div>
+        @else
+            <div class="ui red inverted segment"><div class="ui large left aligned header">
+                Patient Didn't Added! , Check If Patient Is Already Exist.
+            </div></div>
+        @endif
     @endif
 
     <form class="ui center aligned form" method="post" action="/patient/add-new">
@@ -46,10 +46,7 @@ Add Patient
                     <input name="fileNumber" type="text">
                 </div>
 
-                <div class="field">
-                    <label>Doctor Name</label>
-                    <input name="doctorName" type="text">
-                </div>
+                @include("dropdown.doctors" , ["doctors" => $doctors])
 
                 <div class="field">
                     <label>Phone</label>
@@ -69,17 +66,17 @@ Add Patient
 
                 @include("dropdown.sd")
 
-                @include("dropdown.status")
+                @include("dropdown.diagnose")
+
 
             </div>
 
             <div class="eight wide column">
 
-                @include("dropdown.diagnose")
+
+                @include("dropdown.status")
 
                 @include("dropdown.diagnose_method")
-
-                @include("dropdown.disease_type")
 
                 @include("dropdown.disease_reason")
 
@@ -102,6 +99,8 @@ Add Patient
                 </div>
 
             </div>
+
+            @include("patient.disease_type")
 
         </div>
 
@@ -159,6 +158,10 @@ Add Patient
                 </div>
 
             </div>
+
+
+
+
         </div>
 
         <div style="text-align: center;margin-top: 16px;">
@@ -193,8 +196,8 @@ Add Patient
                     diagnoseMethod    : 'empty' ,
                     diseaseType    : 'empty' ,
                     diseaseReason    : 'empty' ,
-                    liverBioposy    : 'empty' ,
-                    fibroscan    : 'empty' ,
+                    //liverBioposy    : 'empty' ,
+                    //fibroscan    : 'empty' ,
                     dm    : 'empty' ,
                     crf    : 'empty' ,
                     personalId    : 'empty' ,
@@ -202,7 +205,6 @@ Add Patient
 
                 }
             });
-
 
 </script>
 
