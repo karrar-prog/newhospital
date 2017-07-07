@@ -39,7 +39,7 @@
                     <th>Phone</th>
                     <th>Age</th>
                     <th>Gender</th>
-                    <th>Delete</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
 
@@ -54,6 +54,7 @@
                     <td>{{$patient["Age"]}}</td>
                     <td>{{$patient["Gender"]}}</td>
                     <td style="text-align: center;"><a class="ui red button" href="/patient/delete/{{$patient["ID"]}}">Delete</a></td>
+                    <td style="text-align: center;"><a class="ui blue button" href="/patient/update/{{$patient["ID"]}}">Update</a></td>
                 </tr>
 
             @endforeach
