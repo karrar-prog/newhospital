@@ -57,8 +57,19 @@
 
             <tbody>
 
+            <?php
+                    $male = 0;
+                    $female = 0;
+            ?>
+
             @foreach($result as $row)
 
+                <?php
+                        if (strcmp($row->Gender , "ذكر") == 0)
+                            $male++;
+                        else if (strcmp($row->Gender , "انثى") == 0)
+                            $female++;
+                ?>
                 <tr>
                     <td><a href="/patient/{{$row->ID}}">{{$row->Name}}</a></td>
                     <td>{{$row->Address}}</td>
@@ -81,6 +92,34 @@
             </tbody>
 
         </table>
+
+
+        <table class="ui celled compact collapsing blue table">
+            <thead>
+                <tr>
+                    <th colspan="2">Statistics</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="width: 120px;">Total Count</td>
+                    <td style="min-width: 70px;text-align: center;">{{count($result)}}</td>
+                </tr>
+
+                <tr>
+                    <td style="width: 120px;">Female</td>
+                    <td style="min-width: 70px;text-align: center;">{{$female}}</td>
+                </tr>
+
+                <tr>
+                    <td style="width: 120px;">Male</td>
+                    <td style="min-width: 70px;text-align: center;">{{$male}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+
+
 
     </div>
 

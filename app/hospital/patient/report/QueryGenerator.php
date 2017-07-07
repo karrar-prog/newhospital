@@ -29,7 +29,7 @@ class QueryGenerator
 
     public function getQueryString()
     {
-        return "SELECT ID , Name , Address , HospitalName , pvr.* FROM patient , pvr " . $this->_reportConditionGenerator->generate("WHERE pvr.Patient_ID = patient.ID");
+        return "SELECT ID , Name , Gender , Address , HospitalName , pvr.* FROM patient , pvr " . $this->_reportConditionGenerator->generate("WHERE pvr.Patient_ID = patient.ID");
     }
 
     public function getParams()
