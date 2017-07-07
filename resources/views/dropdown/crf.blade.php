@@ -1,6 +1,6 @@
 <div class="field">
     <label> CRF : </label>
-    <div class="ui selection dropdown">
+    <div id="crfDropdown" class="ui selection dropdown">
         <input type="hidden" name="crf">
         <i class="dropdown icon"></i>
         <div class="default text">CRF</div>

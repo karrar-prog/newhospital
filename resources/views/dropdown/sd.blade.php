@@ -1,6 +1,6 @@
 <div class="field">
     <label> Scientific Degree : </label>
-    <div class="ui selection dropdown">
+    <div id="sdDropdown" class="ui selection dropdown">
         <input type="hidden" name="sd">
         <i class="dropdown icon"></i>
         <div class="default text">Scientific Degree</div>

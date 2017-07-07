@@ -7,6 +7,7 @@
 @section("content")
 
     <div class="ui container">
+
         <div class="ui hidden divider"></div>
         <div class="ui blue inverted segment">
             <div class="ui center aligned large header">
@@ -56,43 +57,37 @@
                         <input name="firstPCR" type="number">
                     </div>
 
+                    <div class="field">
+                        <label>Treatment</label>
+                        <input name="treatment" type="text">
+                    </div>
+
                 </div>
 
                 <div class="eight wide column">
 
                     @include("dropdown.dm")
 
-
                     @include("dropdown.crf")
-
 
                     @include("dropdown.diagnose")
 
-
-
                     @include("dropdown.diagnose_method")
-
-
 
                     @include("dropdown.disease_type")
 
-
                     @include("dropdown.disease_reason")
-
-
 
                     @include("dropdown.fibroscan")
 
-
-
                     @include("dropdown.liver_biopsy")
-
-
 
                     <div class="field">
                         <label>End PCR</label>
                         <input name="lastPCR" type="number">
                     </div>
+
+
 
                 </div>
 
@@ -107,6 +102,7 @@
 
         <div class="ui hidden divider"></div>
         <div class="ui hidden divider"></div>
+
     </div>
 
     <script>

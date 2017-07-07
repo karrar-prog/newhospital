@@ -1,7 +1,7 @@
 <div class="field">
     <label> Doctors : </label>
-    <div class="ui search selection dropdown">
-        <input type="hidden" name="dm">
+    <div id="doctorsDropdown" class="ui search selection dropdown">
+        <input type="hidden" name="doctorName">
         <i class="dropdown icon"></i>
         <div class="default text">Doctors</div>
         <div class="menu">

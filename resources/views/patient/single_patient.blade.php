@@ -36,6 +36,11 @@
 
         </form>
 
+        <div class="ui small header right floated">Do You Want To :
+            <a class="ui small blue button" href="/patient/update/{{$patient->ID}}">Update</a>
+            <a class="ui small red button" href="/patient/delete/{{$patient->ID}}">Delete</a>
+        </div>
+
         <table class="ui stripped celled table">
 
             <thead>
@@ -55,7 +60,7 @@
                 <tr><td>Gender</td><td>{{$patient["Gender"]}}</td></tr>
                 <tr><td>Address</td><td>{{$patient["Address"]}}</td></tr>
                 <tr><td>Work</td><td>{{$patient["Work"]}}</td></tr>
-                <tr><td>SD</td><td>{{$patient["SD"]}}</td></tr>
+                <tr><td>Scientific Degree</td><td>{{$patient["SD"]}}</td></tr>
                 <tr><td>Status</td><td>{{$patient["Status"]}}</td></tr>
                 <tr><td>Diagnose</td><td>{{$patient["Diagnose"]}}</td></tr>
                 <tr><td>Way Of Diagnoses</td><td>{{$patient["DiagnoseMethod"]}}</td></tr>
@@ -67,13 +72,12 @@
                 <tr><td>DM</td><td>{{$patient["DM"]}}</td></tr>
                 <tr><td>CRF</td><td>{{$patient["CRF"]}}</td></tr>
                 <tr><td>Registration Date</td><td>{{$patient["RegisterDate"]}}</td></tr>
-                <tr><td>Hospital</td><td>{{$patient["Hospital"]}}</td></tr>
+                <tr><td>Hospital</td><td>{{$patient["HospitalName"]}}</td></tr>
                 <tr><td>Personal ID Number</td><td>{{$patient["PersonalID"]}}</td></tr>
 
             </tbody>
 
         </table>
-
 
         @if(count($visits) > 0)
 

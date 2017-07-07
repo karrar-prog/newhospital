@@ -1,9 +1,9 @@
 <div class="field">
     <label> Fibroscan : </label>
-    <div class="ui selection dropdown">
+    <div id="fibroscanDropdown" class="ui selection dropdown">
         <input type="hidden" name="fibroscan">
         <i class="dropdown icon"></i>
-        <div class="default text">Liver Biopsy</div>
+        <div class="default text">Fibroscan</div>
         <div class="menu">
 
             <div class="item" data-value="F1">F1</div>

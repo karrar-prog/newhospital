@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\hospital\patient\report\PatientReporter;
 use App\Model\AllVisit;
+use App\Model\Doctor;
 use App\Model\Patient;
 use App\Model\Visit;
 use Carbon\Carbon;
@@ -218,7 +219,7 @@ class PatientController extends Controller
         $patient->DM = Input::get("dm" , "");
         $patient->CRF = Input::get("crf" , "");
         $patient->RegisterDate = Carbon::now("Asia/Baghdad");
-        $patient->HospitalName = Input::get("hospitalName" , "");
+        $patient->HospitalName = Input::get("hospital" , "");
         $patient->PersonalID = Input::get("personalId" , "");
     }
 
@@ -259,7 +260,7 @@ class PatientController extends Controller
 
     public function showAddNew()
     {
-        $doctors = Patient::distinct()->select("DoctorName AS Name")->get(['DoctorName AS Name'])->toArray();
+        $doctors = Doctor::all(["Name"])->toArray();
         return view("patient.add_patient" , ["doctors" => $doctors]);
     }
 
@@ -267,6 +268,7 @@ class PatientController extends Controller
     {
         $patient = new Patient();
         $this->fillPatientFromInput2($patient);
+
 
         try
         {
@@ -283,9 +285,6 @@ class PatientController extends Controller
         }
         catch (QueryException $e)
         {
-            dump(Input::all());
-            dump($patient);
-            dd($e);
             Session::flash("success" , false);
             return redirect()->back()->withInput(Input::all());
         }
@@ -322,6 +321,64 @@ class PatientController extends Controller
             $singleVisit->Treatment2 = $treatment2;
             $singleVisit->Date = $date;
             $singleVisit->save();
+        }
+    }
+
+
+    public function showDelete($id)
+    {
+        $patient = Patient::where("ID" , "=" , $id)->first();
+        if (!$patient)
+            return redirect("/");
+
+        return view("patient.delete_patient" , ["patient" => $patient]);
+    }
+
+    public function delete($id)
+    {
+        $patient = Patient::where("ID" , "=" , $id)->first();
+        if ($patient)
+            $patient->forceDelete();
+
+        return redirect("/");
+    }
+
+
+    public function showUpdate($id)
+    {
+        $patient = Patient::where("ID" , "=" , $id)->first();
+        if (!$patient)
+            return redirect("/");
+
+        $doctors = Doctor::all(["Name"])->toArray();
+
+        return view("patient.update_patient" , ["patient" => $patient , "doctors" => $doctors]);
+    }
+
+    public function update($id)
+    {
+        $otherPatientWithSameIdentity = Patient::where("PersonalID" , Input::get("personalId"))
+            ->where("Address" , Input::get("Address"))
+            ->where("ID" , "<>" , $id)
+            ->get();
+        if (count($otherPatientWithSameIdentity) > 0)
+        {
+            Session::flash("success" , false);
+            return redirect()->back()->withInput(Input::all());
+        }
+
+
+        $patient = Patient::where("ID" , "=" , $id)->first();
+        if ($patient)
+        {
+            $this->fillPatientFromInput2($patient);
+            $patient->save();
+            return redirect("/patient/" . $id);
+        }
+        else
+        {
+            Session::flash("success" , false);
+            return redirect()->back()->withInput(Input::all());
         }
     }
 

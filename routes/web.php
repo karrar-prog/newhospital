@@ -34,3 +34,11 @@ Route::post('/login', "LoginController@login");
 
 Route::get('/patient/simple-report', "PatientController@showSimpleReport");
 Route::post('/patient/simple-report', "PatientController@simpleReport");
+
+
+Route::get('/patient/delete/{id}', "PatientController@showDelete");
+Route::get('/patient/delete-now/{id}', "PatientController@delete");
+
+
+Route::get('/patient/update/{id}', "PatientController@showUpdate");
+Route::post('/patient/update-now/{id}', "PatientController@update");

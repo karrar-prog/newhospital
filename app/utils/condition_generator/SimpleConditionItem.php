@@ -28,16 +28,12 @@ class SimpleConditionItem extends ConditionItem
     public function generateCondition()
     {
         if (!empty($this->_value))
-            return " " . $this->_column . " " . $this->_operation . " ? ";
+            return " " . $this->_column . " " . $this->_operation . (empty($this->_operation)?"" : " ? ");
         return '';
     }
 
     public function getValueForQuery()
     {
-//        if (strcmp("LIKE" , $this->_operation) == 0)
-//        {
-//            return "%" . $this->_value . "%";
-//        }
         return $this->_value;
     }
 

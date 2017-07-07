@@ -1,6 +1,6 @@
 <div class="field">
     <label> Disease Type </label>
-    <div class="ui selection dropdown">
+    <div id="diseaseTypeDropdown" class="ui selection dropdown">
         <input type="hidden" name="diseaseType">
         <i class="dropdown icon"></i>
         <div class="default text">Disease Type</div>

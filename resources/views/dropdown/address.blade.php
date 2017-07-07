@@ -1,6 +1,6 @@
 <div class="field">
     <label> Address : </label>
-    <div class="ui selection dropdown">
+    <div id="addressDropdown" class="ui selection dropdown">
         <input type="hidden" name="address">
         <i class="dropdown icon"></i>
         <div class="default text">Address</div>

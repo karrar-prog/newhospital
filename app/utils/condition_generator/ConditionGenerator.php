@@ -48,7 +48,11 @@ class ConditionGenerator
 
             if (!empty($generatedCondition))
             {
-                $this->_paramsArray[] = $this->_items[$counter]->getValueForQuery();
+                $value = $this->_items[$counter]->getValueForQuery();
+                if (!is_array($value))
+                    $this->_paramsArray = $value;
+                else
+                    $this->_paramsArray = array_merge($this->_paramsArray , $value);
                 $firstCondition = false;
             }
 

@@ -82,6 +82,13 @@ class ReportConditionGenerator
 
             case "firstPCR" : return new SimpleConditionItem("CAST(FirstPCR AS UNSIGNED)" , ">=" , $value);
             case "lastPCR" : return new SimpleConditionItem("CAST(LastPCR AS UNSIGNED)" , "<=" , $value);
+            case "treatment" :
+                $condition1 = " FirstVisitTreatment1 LIKE ? OR FirstVisitTreatment2 LIKE ?";
+                $condition2 = " OR LastVisitTreatment1 LIKE ? OR LastVisitTreatment2 LIKE ? ";
+                $condition = "(" . $condition1 . $condition2 . ")";
+                $treatment = "%" . $value . "%";
+                $values = [$treatment , $treatment , $treatment , $treatment];
+                return new SimpleConditionItem($condition , "" , $values);
 
             default : return null;
         }

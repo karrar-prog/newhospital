@@ -1,6 +1,6 @@
 <div class="field">
     <label> Gender : </label>
-    <div class="ui selection dropdown">
+    <div id="genderDropdown" class="ui selection dropdown">
         <input type="hidden" name="gender">
         <i class="dropdown icon"></i>
         <div class="default text">Gender</div>

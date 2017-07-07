@@ -1,6 +1,6 @@
 <div class="field">
     <label> Liver Biopsy : </label>
-    <div class="ui selection dropdown">
+    <div id="liverBiopsyDropdown" class="ui selection dropdown">
         <input type="hidden" name="liverBioposy">
         <i class="dropdown icon"></i>
         <div class="default text">Liver Biopsy</div>
