@@ -50,7 +50,7 @@ class ConditionGenerator
             {
                 $value = $this->_items[$counter]->getValueForQuery();
                 if (!is_array($value))
-                    $this->_paramsArray = $value;
+                    $this->_paramsArray[] = $value;
                 else
                     $this->_paramsArray = array_merge($this->_paramsArray , $value);
                 $firstCondition = false;
