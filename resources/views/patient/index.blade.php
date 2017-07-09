@@ -46,7 +46,6 @@
             <tbody>
 
             @foreach($patients as $patient)
-
                 <tr>
                     <td><a href="/patient/{{$patient["ID"]}}">{{$patient["Name"]}}</a></td>
                     <td>{{$patient["FileNumber"]}}</td>
@@ -58,12 +57,13 @@
                         <a class="ui red button" href="/patient/delete/{{$patient["ID"]}}">Delete</a>
                     </td>
                 </tr>
-
             @endforeach
 
             </tbody>
 
         </table>
+
+        <div class="ui hidden divider"></div>
 
     </div>
 

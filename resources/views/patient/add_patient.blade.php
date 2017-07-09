@@ -95,7 +95,7 @@ Add Patient
 
                 <div class="field">
                     <label>Hospital</label>
-                    <input name="hospital" type="text">
+                    <input name="hospital" value="{{$_SESSION["HOSPITAL_NAME"]}}" type="text">
                 </div>
 
             </div>

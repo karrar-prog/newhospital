@@ -19,12 +19,15 @@
         @if(isset($response))
 
             @if($response["exist"] == true)
-                <div class="ui info message">
-                    <div class="ui small header">{{$response["name"]}} Is Exist</div>
+                <div class="ui green inverted center aligned segment">
+                    <div class="ui small header">Person : {{$response["name"]}}</div>
+                    <div class="ui medium header">EXIST</div>
                 </div>
             @else
-                <div class="ui warning message">
-                    <div class="ui small header">Person With {Personal ID - Address} {{$response["name"]}} Is Not Exist</div>
+                <div class="ui red inverted center aligned segment">
+                    <div class="ui small header">Personal ID : {{$response["personalId"]}}</div>
+                    <div class="ui small header">Address : {{$response["address"]}}</div>
+                    <div class="ui medium header">NOT EXIST</div>
                 </div>
             @endif
 

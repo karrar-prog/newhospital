@@ -13,10 +13,11 @@ class SimpleFinderQueryGenerator extends QueryGenerator
 {
     public function getQueryString()
     {
+        $generatedCondition = $this->_reportConditionGenerator->generate();
         if (count($this->getParams()) > 0)
-            return "SELECT ID , Name , Address , HospitalName , Age , Work , Phone , Gender , RegisterDate FROM patient WHERE " . $this->_reportConditionGenerator->generate();
+            return "SELECT ID , Name , Address , HospitalName , Age , Work , Phone , Gender , RegisterDate FROM patient WHERE " . $generatedCondition;
         else
-            return "SELECT ID , Name , Address , HospitalName , Age , Work , Phone , Gender , RegisterDate FROM patient " . $this->_reportConditionGenerator->generate();
+            return "SELECT ID , Name , Address , HospitalName , Age , Work , Phone , Gender , RegisterDate FROM patient " . $generatedCondition;
     }
 
 }

@@ -52,6 +52,19 @@
 
         @endforeach
 
+        <?php
+        if (count($result) > 0)
+            {
+                $maleRate = ($male / count($result)) * 100;
+                $femaleRate = ($female / count($result)) * 100;
+            }
+            else
+            {
+                $maleRate = 0;
+                $femaleRate = 0;
+            }
+        ?>
+
         <table class="ui celled compact collapsing blue table">
             <thead>
             <tr>
@@ -72,6 +85,16 @@
             <tr>
                 <td style="width: 120px;">Male</td>
                 <td style="min-width: 70px;text-align: center;">{{$male}}</td>
+            </tr>
+
+            <tr>
+                <td style="width: 120px;">Male Rate</td>
+                <td style="min-width: 70px;text-align: center;">{{$maleRate}}</td>
+            </tr>
+
+            <tr>
+                <td style="width: 120px;">Female Rate</td>
+                <td style="min-width: 70px;text-align: center;">{{$femaleRate}}</td>
             </tr>
 
             </tbody>

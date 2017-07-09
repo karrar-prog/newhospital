@@ -35,6 +35,7 @@ class LoginController extends Controller
             $_SESSION["Name"] = $doctor->Name;
             $_SESSION["Email"] = $doctor->Email;
             $_SESSION["USER_TYPE"] = $doctor->Type;
+            $_SESSION["HOSPITAL_NAME"] = $doctor->HospitalName;
             return redirect("/patient");
         }
         else
@@ -59,6 +60,7 @@ class LoginController extends Controller
         unset($_SESSION["Email"]);
         unset($_SESSION["USER_TYPE"]);
         unset($_SESSION["ID"]);
+        unset($_SESSION["HOSPITAL_NAME"]);
         return redirect("/login");
     }
 
