@@ -8,6 +8,23 @@ use Illuminate\Support\Facades\Input;
 
 class DoctorController extends Controller
 {
+
+    public function newDoctor()
+    {
+        if (!isset($_SESSION["Login"]) || $_SESSION["Login"] != true)
+        {
+            $_SESSION["LOGIN_MESSAGE"] = "You Should Login First";
+            return redirect("/login");
+        }
+
+     $hospital_names = Doctor::distinct()->get(['HospitalName']);
+
+
+     return view("/doctor.add_new" ,["hospital_names" => $hospital_names] );
+
+    }
+
+
     public function save()
     {
         $originalDoctorName = Input::get("OriginalDoctorName" , "");
@@ -23,19 +40,24 @@ class DoctorController extends Controller
             $doctor = new Doctor();
 
         $doctor->Name = Input::get("Name");
-        $doctor->Password = Input::get("Password");
-        $doctor->Email = Input::get("Email");
-        $doctor->Phone = Input::get("Phone");
-        $doctor->Type = Input::get("Type");
+        $doctor->Password = Input::get("password");
+        $doctor->Email = Input::get("email");
+        $doctor->Phone = Input::get("phone");
+        $doctor->Type = "2";
+        $doctor->HospitalName = Input::get("hospitalName","ssss");
 
         try
         {
             $success = $doctor->save();
-            return ["success" => $success];
+            return redirect()->guest('newdoctor')->with('message', 'تمت الاضافة بنجاح');;
+
         }
         catch (QueryException $e)
         {
-            return ["success" => false];
+            dd($e);
+
+            return redirect()->guest('newdoctor')->with('message', 'لم تتم الاضافة  !!');;
+
         }
     }
 

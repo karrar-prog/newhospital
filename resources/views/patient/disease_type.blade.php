@@ -1,6 +1,6 @@
 <div class="sixteen wide column">
     <div class="field disabled">
-        <label>Disease Type</label>
+        <label>Genotype</label>
         <input id="diseaseType" name="diseaseType" type="text">
     </div>
 </div>
@@ -42,8 +42,14 @@
         <label>HCV</label>
         <div class="field">
             <div class="ui radio checkbox">
-                <input id="option5" type="radio" value="genotype1" name="hcv">
-                <label for="option5">genotype1</label>
+                <input id="option5" type="radio" value="genotype1 A" name="hcv">
+                <label for="option5">genotype1 A</label>
+            </div>
+        </div>
+  <div class="field">
+            <div class="ui radio checkbox">
+                <input id="option15" type="radio" value="genotype1 B" name="hcv">
+                <label for="option15">genotype1 B</label>
             </div>
         </div>
 
@@ -79,6 +85,12 @@
             <div class="ui radio checkbox">
                 <input id="option10" type="radio"  value="genotype6" name="hcv">
                 <label for="option10">genotype6</label>
+            </div>
+        </div>
+       <div class="field">
+            <div class="ui radio checkbox">
+                <input id="option11" type="radio"  value="Not_available" name="hcv">
+                <label for="option11">Not available</label>
             </div>
         </div>
 

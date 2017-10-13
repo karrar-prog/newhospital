@@ -89,12 +89,12 @@
 
             <tr>
                 <td style="width: 120px;">Male Rate</td>
-                <td style="min-width: 70px;text-align: center;">{{$maleRate}}</td>
+                <td style="min-width: 70px;text-align: center;">% {{sprintf('%0.1f', $maleRate)}}</td>
             </tr>
 
             <tr>
                 <td style="width: 120px;">Female Rate</td>
-                <td style="min-width: 70px;text-align: center;">{{$femaleRate}}</td>
+                <td style="min-width: 70px;text-align: center;">% {{sprintf('%0.1f', $femaleRate)}}</td>
             </tr>
 
             </tbody>
@@ -128,6 +128,8 @@
                         else if (strcmp($row->Gender , "انثى") == 0)
                             $female++;
                 ?>
+
+
                 <tr>
                     <td><a href="/patient/{{$row->ID}}">{{$row->Name}}</a></td>
                     <td>{{$row->Address}}</td>
@@ -142,7 +144,6 @@
                     <td class="second">{{$row->LastVisitTreatment1}}</td>
                     <td class="second">{{$row->LastVisitTreatment2}}</td>
                     <td class="second">{{$row->LastVisitDate}}</td>
-
                 </tr>
 
             @endforeach
@@ -150,6 +151,8 @@
             </tbody>
 
         </table>
+
+        <div class="ui hidden divider"></div>
 
 
 

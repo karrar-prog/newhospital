@@ -1,9 +1,9 @@
 <div class="field">
-    <label> Disease Type </label>
+    <label> Genotype </label>
     <div id="diseaseTypeDropdown" class="ui selection dropdown">
         <input type="hidden" name="diseaseType">
         <i class="dropdown icon"></i>
-        <div class="default text">Disease Type</div>
+        <div class="default text">Genotype</div>
         <div class="menu">
 
             <div class="item" data-value="HBeAg (-ve)">HBeAg (-ve)</div>
@@ -11,7 +11,9 @@
             <div class="item" data-value="HBeAb (-ve)">HBeAb (-ve)</div>
             <div class="item" data-value="HBeAb (+ve)">HBeAb (+ve)</div>
 
-            <div class="item" data-value="genotype1">genotype1</div>
+            <div class="item" data-value="genotype1 A">genotype1 A</div>
+    <div class="item" data-value="genotype1 B">genotype1 B</div>
+
             <div class="item" data-value="genotype2">genotype2</div>
             <div class="item" data-value="genotype3">genotype3</div>
             <div class="item" data-value="genotype4">genotype4</div>

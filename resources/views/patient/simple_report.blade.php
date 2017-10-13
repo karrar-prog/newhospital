@@ -20,10 +20,12 @@
             <div class="ui left aligned grid">
 
                 <div class="eight wide column">
-                    <div class="field">
-                        <label>Doctor Name</label>
-                        <input name="doctorName" type="text">
-                    </div>
+                    {{--<div class="field">--}}
+                        {{--<label>Doctor Name</label>--}}
+                        {{--<input name="doctorName" type="text">--}}
+                    {{--</div>--}}
+
+                    @include("dropdown.doctors")
 
                     <div class="field">
                         <label>Paient Name</label>

@@ -29,8 +29,8 @@
 
         <form action="/patient/search" method="post" class="ui form">
 
-            <div class="inline field">
-                <input name="search" type="text" placeholder="Part of the name">
+            <div class="inline field ">
+                <input  name="search" type="text" placeholder="Part of the name">
                 <button class="ui blue icon button"><i class="search icon"></i></button>
             </div>
 
@@ -117,5 +117,6 @@
         <div class="ui hidden divider"></div>
 
     </div>
+
 
 @endsection

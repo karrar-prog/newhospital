@@ -13,3 +13,13 @@
         </div>
     </div>
 </div>
+
+<script>
+    $("#doctorsDropdown").on('keydown' , function(e)
+    {
+        if(e.keyCode === 27)
+        {
+            $(this).dropdown('clear');
+        }
+    });
+</script>

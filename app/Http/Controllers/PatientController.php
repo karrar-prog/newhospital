@@ -115,7 +115,16 @@ class PatientController extends Controller
             return redirect("/login");
         }
 
-        return view("patient.report");
+        if ($_SESSION["USER_TYPE"] == 1)
+        {
+            $doctors = Doctor::all(["Name"])->toArray();
+        }
+        else
+        {
+            $doctors = Doctor::where("HospitalName" , $_SESSION["HOSPITAL_NAME"])->get(["Name"])->toArray();
+        }
+
+        return view("patient.report" , ["doctors" => $doctors]);
     }
 
     public function report()
@@ -229,7 +238,16 @@ class PatientController extends Controller
             return redirect("/login");
         }
 
-        return view("patient.simple_report");
+        if ($_SESSION["USER_TYPE"] == 1)
+        {
+            $doctors = Doctor::all(["Name"])->toArray();
+        }
+        else
+        {
+            $doctors = Doctor::where("HospitalName" , $_SESSION["HOSPITAL_NAME"])->get(["Name"])->toArray();
+        }
+
+        return view("patient.simple_report" , ["doctors" => $doctors]);
     }
 
     public function simpleReport()
@@ -254,12 +272,13 @@ class PatientController extends Controller
 
     public function showAddNew()
     {
-        $doctors = Doctor::all(["Name"])->toArray();
+        $doctors = Doctor::where("HospitalName" , $_SESSION["HOSPITAL_NAME"])->get(["Name"])->toArray();
         return view("patient.add_patient" , ["doctors" => $doctors]);
     }
 
     public function addNew()
     {
+
         $patient = new Patient();
         $this->fillPatientFromInput2($patient);
 

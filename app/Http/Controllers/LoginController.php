@@ -18,10 +18,11 @@ class LoginController extends Controller
         return view("login.login");
     }
 
+
     public function login()
     {
         if (isset($_SESSION["Login"]) && $_SESSION["Login"] == true)
-            return redirect("/patient");
+            return redirect("/patient/exist");
 
         $email = Input::get("email");
         $password = Input::get("password");
@@ -48,7 +49,7 @@ class LoginController extends Controller
     public function main()
     {
         if (isset($_SESSION["Login"]) && $_SESSION["Login"] == true)
-            return redirect("/patient");
+            return redirect("/patient/exist");
         else
             return redirect("/login");
     }

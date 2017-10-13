@@ -10,7 +10,7 @@
 
     <div class="ui hidden divider"></div>
 
-    <div class="ui blue inverted segment">
+    <div class="ui blue inverted segment ">
         <div class="ui large center aligned header">
             Login Here
         </div>
@@ -24,19 +24,40 @@
 
     <form class="ui form" action="/login" method="post">
 
-        <div class="field">
+        <div class="field test button">
             <label>Email</label>
             <input type="text" name="email" placeholder="email">
         </div>
 
-        <div class="field">
+        <div class="field test button">
             <label>Password</label>
             <input type="password" name="password" placeholder="Password">
         </div>
 
-        <button class="ui button" type="submit">Login</button>
+        <button class="ui button green leaf" type="submit">Login</button>
     </form>
 
 </div>
+<script>
+    $('.green.leaf')
+        .transition({
+            animation  : 'scale',
+            duration   : '0s',
 
+        })
+        .transition({
+            animation  : 'scale',
+            duration   : '2s',
+
+        })
+    ;
+</script>
+<script>
+    $('.test.button')
+        .transition('horizontal flip', '0ms')
+    ;
+    $('.test.button')
+        .transition('horizontal flip', '500ms')
+    ;
+</script>
 @endsection

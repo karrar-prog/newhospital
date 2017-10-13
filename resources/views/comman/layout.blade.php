@@ -17,21 +17,28 @@
 
 <body> 
 
-
     @if(isset($_SESSION["Login"]) && $_SESSION["Login"] == true)
         {{--@if(isset($_SESSION["USER_TYPE"]) && intval($_SESSION["USER_TYPE"]) == 1)--}}
             <div class="ui container">
                 <div class="ui hidden divider"></div>
                 <div style="text-align: center;"><img  style="margin: 0 auto;" src="{{asset("image/logo.gif")}}" class="ui rounded small image"></div>
-                <div class="ui six item blue inverted menu">
-                    <a href="/patient" class="item">Patients</a>
+                <div class="ui four item blue inverted menu ">
+                    <a href="/patient" class="item">All Patient</a>
                     <a href="/patient/report" class="item">Report</a>
                     <a href="/patient/simple-report" class="item">Patient Report</a>
-                    <a href="/patient/add-new" class="item">Add Patient</a>
                     <a href="/patient/exist" class="item">Check Exist</a>
-                    <a href="/logout" class="item">Logout</a>
+
                 </div>
             </div>
+        <div class="ui container">
+            <div class="ui hidden divider"></div>
+               <div class="ui three item blue inverted menu ">
+                   <a href="/patient/add-new" class="item">Add Patient</a>
+                   <a href="/newdoctor" class="item">Add Doctors</a>
+                   <a href="/logout" class="item">Logout</a>
+
+            </div>
+        </div>
         {{--@else--}}
             {{--<div class="ui container">--}}
                 {{--<div class="ui hidden divider"></div>--}}
@@ -44,6 +51,12 @@
             {{--</div>--}}
         {{--@endif--}}
     @endif
+
+    <script>
+        $('.long.leaf.image')
+            .transition('pulse')
+        ;
+    </script>
 
 @yield("content")
 

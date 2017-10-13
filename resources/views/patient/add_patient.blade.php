@@ -60,8 +60,6 @@ Add Patient
 
                 @include("dropdown.gender")
 
-                @include("dropdown.address")
-
                 @include("dropdown.work")
 
                 @include("dropdown.sd")
@@ -93,9 +91,11 @@ Add Patient
                     <input name="personalId" type="text">
                 </div>
 
+                @include("dropdown.address")
+
                 <div class="field">
                     <label>Hospital</label>
-                    <input name="hospital" value="{{$_SESSION["HOSPITAL_NAME"]}}" type="text">
+                    <input disabled name="hospital" value="{{$_SESSION["HOSPITAL_NAME"]}}" type="text">
                 </div>
 
             </div>
@@ -167,6 +167,7 @@ Add Patient
         <div style="text-align: center;margin-top: 16px;">
             <button class="ui large blue button">Add</button>
         </div>
+
 
     </form>
 

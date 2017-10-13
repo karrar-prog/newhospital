@@ -42,3 +42,6 @@ Route::get('/patient/delete-now/{id}', "PatientController@delete");
 
 Route::get('/patient/update/{id}', "PatientController@showUpdate");
 Route::post('/patient/update-now/{id}', "PatientController@update");
+
+Route::get('/newdoctor', "DoctorController@newDoctor");
+Route::post('/adddoctor', "DoctorController@save");

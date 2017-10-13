@@ -168,6 +168,7 @@
             $("input[name='hospital']").val('{{$patient->HospitalName}}');
             $("input[name='personalId']").val('{{$patient->PersonalID}}');
             $("input[name='diseaseType']").val('{{$patient->DiseaseType}}');
+
         });
 
     </script>
