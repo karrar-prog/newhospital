@@ -6,17 +6,20 @@
 
 @section("content")
 
+
     <div class="ui container">
 
         <div class="ui hidden divider"></div>
 
         <div class="ui blue inverted segment">
-            <div class="ui large center aligned header">
+            <div class="ui small center aligned header">
                 Check Existence
             </div>
         </div>
 
         @if(isset($response))
+
+
 
             @if($response["exist"] == true)
                 <div class="ui red inverted center aligned segment long leaf1">
@@ -32,19 +35,20 @@
             @endif
 
         @endif
+        <div class="ui teal segment">
 
-        <form class="ui form " action="/patient/exist" method="post">
-            <div class="field">
-                <label>Personal ID</label>
-                <input name="PersonalID" type="text">
-            </div>
+            <form class="ui form " action="/patient/exist" method="post">
+                <div class="field">
+                    <label>Personal ID</label>
+                    <input name="PersonalID" type="text">
+                </div>
 
-            @include('dropdown.address')
+                @include('dropdown.address')
 
-            <button class="ui large blue button">Check Existence</button>
+                <button class="ui large blue button">Check Existence</button>
 
-        </form>
-
+            </form>
+        </div>
     </div>
 
     <script>

@@ -45,3 +45,4 @@ Route::post('/patient/update-now/{id}', "PatientController@update");
 
 Route::get('/newdoctor', "DoctorController@newDoctor");
 Route::post('/adddoctor', "DoctorController@save");
+Route::get('/delete', "DoctorController@deleteDoctor");

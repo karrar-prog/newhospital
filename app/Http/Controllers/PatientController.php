@@ -232,6 +232,7 @@ class PatientController extends Controller
 
     public function showSimpleReport()
     {
+
         if (!isset($_SESSION["Login"]) || $_SESSION["Login"] != true)
         {
             $_SESSION["LOGIN_MESSAGE"] = "You Should Login First";

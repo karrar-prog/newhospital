@@ -13,7 +13,7 @@
         <div class="ui hidden divider"></div>
 
         <div class="ui blue inverted segment">
-            <div class="ui center aligned large header">
+            <div class="ui center aligned small header">
                 Report Result
             </div>
         </div>

@@ -9,14 +9,15 @@
     <div class="ui container">
         <div class="ui hidden divider"></div>
         <div class="ui blue inverted segment">
-            <div class="ui center aligned large header">
-                Simple Patient Report
+            <div class="ui center aligned small header">
+              General Report
             </div>
         </div>
+
         <form class="ui center aligned form" method="post" action="/patient/simple-report">
 
             <div class="ui small header"><div class="ui orange label">Leave Field Blank If It Wasn't Needed</div></div>
-
+            <div class="ui teal blue inverted segment">
             <div class="ui left aligned grid">
 
                 <div class="eight wide column">
@@ -84,7 +85,7 @@
                 </div>
 
             </div>
-
+            </div>
             <div style="text-align: center;margin-top: 16px;">
                 <button class="ui large blue button">Find Now</button>
             </div>

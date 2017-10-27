@@ -11,7 +11,7 @@ Add Patient
     <div class="ui hidden divider"></div>
 
     <div class="ui blue inverted segment">
-        <div class="ui center aligned large header">
+        <div class="ui center aligned small header">
             Add Patient
         </div>
     </div>
@@ -28,9 +28,11 @@ Add Patient
         @endif
     @endif
 
+
     <form class="ui center aligned form" method="post" action="/patient/add-new">
 
         <div class="ui small header"><div class="ui orange label">All Fields Are Required</div></div>
+        <div class="ui teal blue inverted segment">
 
         <div class="ui left aligned grid">
 
@@ -103,8 +105,9 @@ Add Patient
             @include("patient.disease_type")
 
         </div>
-
+        </div>
         <div class="ui divider"></div>
+        <div class="ui teal blue inverted segment">
 
         <div class="ui grid">
             <div class="eight wide column">
@@ -163,7 +166,7 @@ Add Patient
 
 
         </div>
-
+    </div>
         <div style="text-align: center;margin-top: 16px;">
             <button class="ui large blue button">Add</button>
         </div>
