@@ -68,9 +68,17 @@ class PatientController extends Controller
             return redirect("/login");
         }
 
-        $hospitalName = $_SESSION["HOSPITAL_NAME"];
-        $patients = Patient::orderBy("ID" , "DESC")->where("HospitalName" , $hospitalName)->limit(1000)->get();
-        return view("patient.index")->with(["patients" => $patients]);
+        if($_SESSION["USER_TYPE"] == '3')
+        {
+
+            $patients = Patient::orderBy("ID" , "DESC")->get();
+            return view("patient.index")->with(["patients" => $patients]);
+        }else {
+            $hospitalName = $_SESSION["HOSPITAL_NAME"];
+            $patients = Patient::orderBy("ID" , "DESC")->where("HospitalName" , $hospitalName)->get();
+            return view("patient.index")->with(["patients" => $patients]);
+        }
+
     }
 
     public function patient($id)
@@ -98,13 +106,23 @@ class PatientController extends Controller
         $name = Input::get("search");
         if (empty(trim($name)))
         {
+
             return $this->index();
         }
+if($_SESSION["USER_TYPE"] == '3')
+{
+    $name = "%" . $name . "%";
 
-        $name = "%" . $name . "%";
-        $hospitalName = $_SESSION["HOSPITAL_NAME"];
-        $patients = Patient::where("Name" , "LIKE" , $name)->where("HospitalName" , $hospitalName)->orderBy("ID" , "DESC")->limit(100)->get();
-        return view("patient.index")->with(["patients" => $patients]);
+    $patients = Patient::where("Name" , "LIKE" , $name)->orderBy("ID" , "DESC")->get();
+    return view("patient.index")->with(["patients" => $patients]);
+}else
+{
+    $name = "%" . $name . "%";
+    $hospitalName = $_SESSION["HOSPITAL_NAME"];
+    $patients = Patient::where("Name" , "LIKE" , $name)->where("HospitalName" , $hospitalName)->orderBy("ID" , "DESC")->get();
+    return view("patient.index")->with(["patients" => $patients]);
+}
+
     }
 
     public function showReport()
@@ -115,7 +133,7 @@ class PatientController extends Controller
             return redirect("/login");
         }
 
-        if ($_SESSION["USER_TYPE"] == 1)
+        if ($_SESSION["USER_TYPE"] == 1 || $_SESSION["USER_TYPE"] == 3 )
         {
             $doctors = Doctor::all(["Name"])->toArray();
         }
@@ -136,7 +154,7 @@ class PatientController extends Controller
         }
 
         $inputs = Input::all();
-        if ($_SESSION["USER_TYPE"] != '1')
+        if ($_SESSION["USER_TYPE"] != '1' && $_SESSION["USER_TYPE"] != '3')
         {
             $inputs["hospital"] = $_SESSION["HOSPITAL_NAME"];
         }
@@ -239,7 +257,7 @@ class PatientController extends Controller
             return redirect("/login");
         }
 
-        if ($_SESSION["USER_TYPE"] == 1)
+        if ($_SESSION["USER_TYPE"] == 1 ||$_SESSION["USER_TYPE"] == 3 )
         {
             $doctors = Doctor::all(["Name"])->toArray();
         }
@@ -260,7 +278,7 @@ class PatientController extends Controller
         }
 
         $inputs = Input::all();
-        if ($_SESSION["USER_TYPE"] != '1')
+        if ($_SESSION["USER_TYPE"] != '1' && $_SESSION["USER_TYPE"] != '3')
         {
             $inputs["hospital"] = $_SESSION["HOSPITAL_NAME"];
         }
