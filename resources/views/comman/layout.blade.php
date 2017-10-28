@@ -28,39 +28,84 @@
 
             <div class="ui container">
 
+
                 <div class="ui small menu">
 
                     <div style="text-align: center;"><img  style="margin: 0 auto;" src="{{asset("image/logo.gif")}}" class="ui rounded tiny image"></div>
 
-                        <div class="ui dropdown item">
+                    <div class="ui dropdown item">
                             Patients <i class="dropdown icon"></i>
                             <div class="menu">
-                                <a href="/patient/exist" class="item">Check Exist</a>
-                                <a href="/patient" class="item">All Patient</a>
-                                <a href="/patient/add-new" class="item">Add Patient</a>
+
+                                <a class="item">
+                                    <a style="width: 180px ; text-align: left" href="/patient/exist" class="ui green right icon button">
+                                        <i class="large find icon"></i>
+                                        Check Exist
+                                    </a>
+                                </a>
+                                <a class="item">
+                                    <a style="width: 180px ; text-align: left"  href="/patient/add-new"  class="ui green right icon button">
+                                        <i class="large add user icon"></i>
+                                        Add New
+                                    </a>
+                                </a>
+                                <a class="item">
+                                    <a style="width: 180px ; text-align: left" href="/patient" class="ui blue green icon button">
+                                        <i class="large  users icon"></i>
+                                        All Patient
+                                    </a>
+                                </a>
+
+
+
+
                             </div>
                         </div>
                     <div class="ui dropdown item">
                         Reports <i class="dropdown icon"></i>
                         <div class="menu">
-                            <a href="/patient/report" class="item">Report With PCR</a>
-                            <a href="/patient/simple-report" class="item">General Report</a>
+
+
+                            <a class="item">
+                                <a style="width: 180px ; text-align: left" href="/patient/report" class="ui green left icon button">
+                                    <i class="large bar chart icon"></i>
+                                    Report With PCR
+                                </a>
+                            </a>
+
+                            <a class="item">
+                                <a style="width: 180px ; text-align: left" href="/patient/simple-report" class="ui green left icon button">
+                                    <i class="large line chart icon"></i>
+                                    General Report
+                                </a>
+                            </a>
+
                         </div>
                     </div>
                     <div class="ui dropdown item">
                         Doctors <i class="dropdown icon"></i>
                         <div class="menu">
-                            <a href="/newdoctor" class="item">Add Doctors</a>
+                            <a class="item">
+                                <a style="width: 180px ; text-align: left" href="/newdoctor" class="ui green right icon button">
+                                    <i class="large doctor icon"></i>
+                                    Add New
+                                </a>
+                            </a>
+
+                            <a class="item">
+                                <a style="width: 180px ; text-align: left" href="/logout" class="ui green right icon button">
+                                    <i class="large sign out icon"></i>
+                                    Logout
+                                </a>
+                            </a>
+
+
+
                         </div>
+
+
                     </div>
 
-                    <div class="right menu">
-
-                        <div class="item">
-
-                            <a href="/logout" class="ui primary button">Logout</a>
-                        </div>
-                    </div>
 
 
                 </div>

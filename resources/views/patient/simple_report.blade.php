@@ -18,7 +18,7 @@
 
             <div class="ui small header"><div class="ui orange label">Leave Field Blank If It Wasn't Needed</div></div>
             <div class="ui teal blue inverted segment">
-            <div class="ui left aligned grid">
+            <div class="ui stackable left aligned grid">
 
                 <div class="eight wide column">
                     {{--<div class="field">--}}
@@ -87,7 +87,7 @@
             </div>
             </div>
             <div style="text-align: center;margin-top: 16px;">
-                <button class="ui large blue button">Find Now</button>
+                <button class="ui large green button">Find Now</button>
             </div>
 
         </form>

@@ -25,7 +25,7 @@
 
             <div class="inline field">
                 <input name="search" type="text" placeholder="Part of the name">
-                <button class="ui blue icon button"><i class="search icon"></i></button>
+                <button class="ui green icon button"><i class="search icon"></i></button>
             </div>
 
         </form>
@@ -47,13 +47,14 @@
 
             @foreach($patients as $patient)
                 <tr>
-                    <td><a href="/patient/{{$patient["ID"]}}">{{$patient["Name"]}}</a></td>
+
+                    <td> <a style="font-weight: bold" href="/patient/{{$patient["ID"]}}">{{$patient["Name"]}}</a></td>
                     <td>{{$patient["FileNumber"]}}</td>
                     <td>{{$patient["Phone"]}}</td>
                     <td>{{$patient["Age"]}}</td>
                     <td>{{$patient["Gender"]}}</td>
                     <td style="text-align: center;">
-                        <a class="ui blue button" href="/patient/update/{{$patient["ID"]}}">Update</a>
+                        <a class="ui green button" href="/patient/update/{{$patient["ID"]}}">Update</a>
                         <a class="ui red button" href="/patient/delete/{{$patient["ID"]}}">Delete</a>
                     </td>
                 </tr>

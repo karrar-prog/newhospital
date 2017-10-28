@@ -105,7 +105,7 @@
 
 
             <div style="text-align: center;margin-top: 16px;">
-                <button class="ui large blue button">Update</button>
+                <button class="ui large green button">Update</button>
             </div>
 
         </form>

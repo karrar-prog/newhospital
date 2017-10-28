@@ -31,7 +31,7 @@
 
             <div class="inline field ">
                 <input  name="search" type="text" placeholder="Part of the name">
-                <button class="ui blue icon button"><i class="search icon"></i></button>
+                <button class="ui green icon button"><i class="search icon"></i></button>
             </div>
 
         </form>

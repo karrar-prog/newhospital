@@ -21,7 +21,7 @@
             <div class="ui green massive message">{{ session()->get('message') }}</div>
         @endif
 
-        <div class="ui grid">
+        <div class="ui stackable grid">
             <div class="eight wide column">
 
                     <form class="ui form" action="/adddoctor" method="post">
@@ -56,8 +56,6 @@
             </div>
 
             <div class="eight wide column ">
-                <div class="ui teal segment">
-
                     @foreach($Doctors as $doctor)
                         <div class="ui segment">
                             <a href="/delete?id={{$doctor->ID}}" class="ui red button">
@@ -68,7 +66,6 @@
                         </div>
 
                     @endforeach
-                </div>
             </div>
 
         </div>
