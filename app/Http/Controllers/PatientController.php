@@ -68,7 +68,7 @@ class PatientController extends Controller
             return view("patient.index")->with(["patients" => $patients]);
         } else {
             $hospitalName = $_SESSION["HOSPITAL_NAME"];
-            $patients = Patient::orderBy("ID", "DESC")->where("HospitalName", $hospitalName)->get();
+            $patients = Patient::orderBy("ID", "DESC")->where("HospitalName", $hospitalName)->limit(21)->get();
             return view("patient.index")->with(["patients" => $patients]);
         }
 
