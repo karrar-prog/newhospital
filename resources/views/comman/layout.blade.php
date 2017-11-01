@@ -14,6 +14,7 @@
     body {
         background-color: #EEEEEE;
     }
+
 </style>
 
 <body>
@@ -31,42 +32,37 @@
                     Reports <i class="dropdown icon"></i>
                     <div class="menu" >
 
-                        <a class="item" style="width: 180px ; text-align: left">
+                        <a class="item" style=" width: 230px ; text-align: left">
 
-                            <a style="margin-left: 15px" href="/patient/report" class="ui green left icon ">
+                            <a style="width: 220px ; text-align: left" href="/patient/report" class="ui green left icon button">
                                 <i class="large bar chart icon"></i>
                                 Report With PCR
                             </a>
                         </a>
 
-                        <a class="item" style="width: 180px ; text-align: left">
-                            <a style="margin-left: 15px" href="/patient/simple-report" class="ui green left icon ">
+                        <a class="item" style="text-align: left; width: 230px">
+                            <a style="width: 220px ; text-align: left" href="/patient/simple-report" class="ui green left icon button">
                                 <i class="large line chart icon"></i>
                                 General Report
                             </a>
                         </a>
 
-                        <a class="item" style="width: 180px ; text-align: left">
-                            <a style="margin-left: 15px" href="/patient/exist" class="ui green right icon">
+                        <a class="item" style="text-align: left; width: 230px">
+                            <a style="width: 220px ; text-align: left" href="/patient/exist" class="ui green right icon button">
                                 <i class="large find icon"></i>
                                 Check By(ID & Address)
                             </a>
                         </a>
 
 
-                        <a class="item" style="width: 180px ; text-align: left">
-                            <a style="margin-left: 15px" href="/patient" class="ui green right icon">
+                        <a class="item" style="text-align: left; width: 230px">
+                            <a style="width: 220px ; text-align: left ; margin-bottom: 10px" href="/patient" class="ui green right icon button">
                                 <i class="large search icon"></i>
                                 Check By Name
                             </a>
                         </a>
 
-                        <a class="item" style="width: 180px ; text-align: left">
-
-
-
-
-                        </a>
+                     
 
                     </div>
                 </div>
