@@ -25,6 +25,16 @@
                         {{--<label>Doctor Name</label>--}}
                         {{--<input name="doctorName" type="text">--}}
                     {{--</div>--}}
+                    @if( $_SESSION["USER_TYPE"] == 3 || $_SESSION["USER_TYPE"] == 1  )
+
+                        @include("dropdown.hospital")
+                    @else
+                        <div class="field">
+
+                            <input type="text" placeholder="{{$_SESSION["HOSPITAL_NAME"]}}" disabled name="hospital" data-value="{{$_SESSION["HOSPITAL_NAME"]}}"/>
+                        </div>
+
+                    @endif
 
                     @include("dropdown.doctors")
 
