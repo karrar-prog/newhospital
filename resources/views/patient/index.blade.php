@@ -52,6 +52,7 @@
             $femaleRate = 0;
         }
         ?>
+            <div class="ui hidden divider"></div>
 
         <table class="ui celled compact collapsing blue table">
             <thead>
@@ -62,7 +63,12 @@
             <tbody>
             <tr>
                 <td style="width: 120px;">Total Count</td>
-                <td style="min-width: 70px;text-align: center;"> {{count($patients)}}</td>
+                @if(count($patients)>20)
+                    <td style="min-width: 70px;text-align: center;"> + {{count($patients)-1}}</td>
+                    @else
+                    <td style="min-width: 70px;text-align: center;"> {{count($patients)}}</td>
+                    @endif
+
             </tr>
 
             <tr>

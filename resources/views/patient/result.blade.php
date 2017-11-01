@@ -131,7 +131,7 @@
 
 
                 <tr>
-                    <td><a href="/patient/{{$row->ID}}">{{$row->Name}}</a></td>
+                    <td><a style="font-weight: bold" href="/patient/{{$row->ID}}">{{$row->Name}}</a></td>
                     <td>{{$row->Address}}</td>
                     <td>{{$row->HospitalName}}</td>
 

@@ -49,7 +49,7 @@
                         <a class="item" style="width: 180px ; text-align: left">
                             <a style="margin-left: 15px" href="/patient/exist" class="ui green right icon">
                                 <i class="large find icon"></i>
-                                Check Exist
+                                Check By(ID & Address)
                             </a>
                         </a>
 
@@ -57,7 +57,7 @@
                         <a class="item" style="width: 180px ; text-align: left">
                             <a style="margin-left: 15px" href="/patient" class="ui green right icon">
                                 <i class="large search icon"></i>
-                                Search
+                                Check By Name
                             </a>
                         </a>
 

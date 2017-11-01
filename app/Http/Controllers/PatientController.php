@@ -64,7 +64,7 @@ class PatientController extends Controller
 
         if ($_SESSION["USER_TYPE"] == '3') {
 
-            $patients = Patient::orderBy("ID", "DESC")->get();
+            $patients = Patient::orderBy("ID", "DESC")->limit(21)->get();
             return view("patient.index")->with(["patients" => $patients]);
         } else {
             $hospitalName = $_SESSION["HOSPITAL_NAME"];
