@@ -33,6 +33,7 @@ class PatientController extends Controller
 
     public function save()
     {
+
         $personalId = $this->convertArabicNumbersToEnglishNumbers(Input::get("OPID", ""));
         $address = Input::get("OA", "");
 
@@ -126,7 +127,7 @@ class PatientController extends Controller
             $doctors = Doctor::where("HospitalName", $_SESSION["HOSPITAL_NAME"])->get(["Name"])->toArray();
         }
         $hospital_names = Doctor::select(["HospitalName"])->groupBy('HospitalName')->get()->toArray();
-        return view("patient.report", ["doctors" => $doctors , "hospital_names"=>$hospital_names]);
+        return view("patient.report", ["doctors" => $doctors, "hospital_names" => $hospital_names]);
     }
 
     public function report()
@@ -140,7 +141,7 @@ class PatientController extends Controller
         if ($_SESSION["USER_TYPE"] != '1' && $_SESSION["USER_TYPE"] != '3') {
             $inputs["hospital"] = $_SESSION["HOSPITAL_NAME"];
         }
-      // dd($inputs);
+        // dd($inputs);
         $reporter = new PatientReporter($inputs);
         $result = $reporter->find();
 
@@ -198,8 +199,9 @@ class PatientController extends Controller
         $patient->DM = Input::get("DM", "");
         $patient->CRF = Input::get("CRF", "");
         $patient->RegisterDate = Input::get("RegisterDate", "");
-        $patient->HospitalName = Input::get("HospitalName", "");
+        $patient->HospitalName = $_SESSION["HOSPITAL_NAME"];
         $patient->PersonalID = $this->convertArabicNumbersToEnglishNumbers(Input::get("PersonalID", ""));
+
     }
 
     private function fillPatientFromInput2($patient)
@@ -223,8 +225,9 @@ class PatientController extends Controller
         $patient->DM = Input::get("dm", "");
         $patient->CRF = Input::get("crf", "");
         $patient->RegisterDate = Carbon::now("Asia/Baghdad");
-        $patient->HospitalName = Input::get("hospital", "");
+        $patient->HospitalName = $_SESSION["HOSPITAL_NAME"];
         $patient->PersonalID = $this->convertArabicNumbersToEnglishNumbers(Input::get("personalId", ""));
+
     }
 
     public function showSimpleReport()
@@ -261,7 +264,7 @@ class PatientController extends Controller
         $reporter = new PatientReporter($inputs);
         $result = $reporter->findSimple();
         $hospital_names = Doctor::select(["HospitalName"])->groupBy('HospitalName')->get()->toArray();
-        return view("patient.simple_report_result", ["result" => $result , "hospital_names"=>$hospital_names]);
+        return view("patient.simple_report_result", ["result" => $result, "hospital_names" => $hospital_names]);
     }
 
     public function showAddNew()
@@ -275,7 +278,7 @@ class PatientController extends Controller
 
         $patient = new Patient();
         $this->fillPatientFromInput2($patient);
-
+        // dd($patient);
 
         try {
             $success = $patient->save();

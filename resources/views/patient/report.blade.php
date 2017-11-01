@@ -31,7 +31,7 @@
                     @else
                         <div class="field">
 
-                            <input type="text" placeholder="{{$_SESSION["HOSPITAL_NAME"]}}" disabled name="hospital" data-value="{{$_SESSION["HOSPITAL_NAME"]}}"/>
+                            <input type="text" placeholder="{{$_SESSION["HOSPITAL_NAME"]}}" disabled name="HospitalName" data-value="{{$_SESSION["HOSPITAL_NAME"]}}"/>
                         </div>
 
                     @endif

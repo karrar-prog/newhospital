@@ -97,7 +97,7 @@ Add Patient
 
                 <div class="field">
                     <label>Hospital</label>
-                    <input disabled name="hospital" value="{{$_SESSION["HOSPITAL_NAME"]}}" type="text">
+                    <input  name="HospitalName" value="{{$_SESSION["HOSPITAL_NAME"]}}" type="text">
                 </div>
 
             </div>
