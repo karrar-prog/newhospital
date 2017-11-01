@@ -138,8 +138,8 @@ class PatientController extends Controller
         }
 
         $inputs = Input::all();
-        if ($_SESSION["USER_TYPE"] != '1' && $_SESSION["USER_TYPE"] != '3') {
-            $inputs["hospital"] = $_SESSION["HOSPITAL_NAME"];
+        if ($_SESSION["USER_TYPE"] == '2') {
+            $inputs["HospitalName"] = $_SESSION["HOSPITAL_NAME"];
         }
         // dd($inputs);
         $reporter = new PatientReporter($inputs);
@@ -199,7 +199,7 @@ class PatientController extends Controller
         $patient->DM = Input::get("DM", "");
         $patient->CRF = Input::get("CRF", "");
         $patient->RegisterDate = Input::get("RegisterDate", "");
-        $patient->HospitalName = $_SESSION["HOSPITAL_NAME"];
+        $patient->HospitalName = Input::get("HospitalName", "");
         $patient->PersonalID = $this->convertArabicNumbersToEnglishNumbers(Input::get("PersonalID", ""));
 
     }
@@ -225,7 +225,7 @@ class PatientController extends Controller
         $patient->DM = Input::get("dm", "");
         $patient->CRF = Input::get("crf", "");
         $patient->RegisterDate = Carbon::now("Asia/Baghdad");
-        $patient->HospitalName = $_SESSION["HOSPITAL_NAME"];
+        $patient->HospitalName =  Input::get("HospitalName", "");
         $patient->PersonalID = $this->convertArabicNumbersToEnglishNumbers(Input::get("personalId", ""));
 
     }
@@ -257,14 +257,14 @@ class PatientController extends Controller
         }
 
         $inputs = Input::all();
-        if ($_SESSION["USER_TYPE"] != '1' && $_SESSION["USER_TYPE"] != '3') {
-            $inputs["hospital"] = $_SESSION["HOSPITAL_NAME"];
+        if ($_SESSION["USER_TYPE"] == '2') {
+            $inputs["HospitalName"] = $_SESSION["HOSPITAL_NAME"];
         }
 
         $reporter = new PatientReporter($inputs);
         $result = $reporter->findSimple();
-        $hospital_names = Doctor::select(["HospitalName"])->groupBy('HospitalName')->get()->toArray();
-        return view("patient.simple_report_result", ["result" => $result, "hospital_names" => $hospital_names]);
+
+        return view("patient.simple_report_result", ["result" => $result]);
     }
 
     public function showAddNew()
