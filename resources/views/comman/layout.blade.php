@@ -85,8 +85,7 @@
     @else
         <div class="ui container">
             <div class="ui small menu">
-                <div style="text-align: center;"><img style="margin: 0 auto;" src="{{asset("image/logo.gif")}}"
-                                                      class="ui rounded tiny image"></div>
+              
                 <div class="ui dropdown item">
                     Patients <i class="dropdown icon"></i>
                     <div class="menu">
@@ -150,21 +149,21 @@
                             </a>
                         </a>
 
-                        <a class="item">
-                            <a style="width: 180px ; text-align: left" href="/logout"
-                               class="ui green right icon button">
-                                <i class="large sign out icon"></i>
-                                Logout
-                            </a>
-                        </a>
+
 
 
                     </div>
 
 
+
                 </div>
 
-
+                <div class="right menu">
+                    <a class="item" href="/logout" class="ui green center right icon button">
+                        <i class="large sign out icon"></i>
+                        Logout
+                    </a>
+                </div>
             </div>
 
         </div>

@@ -345,7 +345,7 @@ class PatientController extends Controller
         if ($patient)
             $patient->forceDelete();
 
-        return redirect("/");
+        return redirect("/patient");
     }
 
     public function showUpdate($id)
