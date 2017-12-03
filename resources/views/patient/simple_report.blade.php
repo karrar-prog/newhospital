@@ -23,22 +23,9 @@
                 <div class="ui stackable left aligned grid">
 
                     <div class="eight wide column">
-                        {{--<div class="field">--}}
-                        {{--<label>Doctor Name</label>--}}
-                        {{--<input name="doctorName" type="text">--}}
-                        {{--</div>--}}
-                        @if( $_SESSION["USER_TYPE"] == 3 || $_SESSION["USER_TYPE"] == 1  )
 
-                            @include("dropdown.hospital")
-                            @else
-                            <div class="field">
 
-                                <input type="text" placeholder="{{$_SESSION["HOSPITAL_NAME"]}}" disabled name="HospitalName" data-value="{{$_SESSION["HOSPITAL_NAME"]}}"/>
-                            </div>
 
-                        @endif
-
-                        @include("dropdown.doctors")
 
                         <div class="field">
                             <label>Paient Name</label>
@@ -78,13 +65,11 @@
                         @include("dropdown.crf")
 
 
-                        @include("dropdown.diagnose")
 
 
                         @include("dropdown.diagnose_method")
 
 
-                        @include("dropdown.disease_type")
 
 
                         @include("dropdown.disease_reason")

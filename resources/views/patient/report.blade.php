@@ -25,18 +25,11 @@
                         {{--<label>Doctor Name</label>--}}
                         {{--<input name="doctorName" type="text">--}}
                     {{--</div>--}}
-                    @if( $_SESSION["USER_TYPE"] == 3 || $_SESSION["USER_TYPE"] == 1  )
 
-                        @include("dropdown.hospital")
-                    @else
-                        <div class="field">
 
-                            <input type="text" placeholder="{{$_SESSION["HOSPITAL_NAME"]}}" disabled name="HospitalName" data-value="{{$_SESSION["HOSPITAL_NAME"]}}"/>
-                        </div>
 
-                    @endif
 
-                    @include("dropdown.doctors")
+
 
                     <div class="field">
                         <label>Paient Name</label>
@@ -65,17 +58,17 @@
 
 
                     <div class="field">
-                        <label>Start PCR</label>
-                        <input name="firstPCR" type="number">
+
+                        <input hidden name="firstPCR" type="number">
                     </div>
                     <div class="field">
-                        <label>End PCR</label>
-                        <input name="lastPCR" type="number">
+
+                        <input hidden name="lastPCR" type="number">
                     </div>
 
                     <div class="field">
-                        <label>Treatment</label>
-                        <input name="treatment" type="text">
+
+                        <input hidden name="treatment" type="text">
                     </div>
 
                 </div>
@@ -86,11 +79,10 @@
 
                     @include("dropdown.crf")
 
-                    @include("dropdown.diagnose")
+
 
                     @include("dropdown.diagnose_method")
 
-                    @include("dropdown.disease_type")
 
                     @include("dropdown.disease_reason")
 

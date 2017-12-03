@@ -89,7 +89,7 @@
             <tr>
                 <th>Name</th>
                 <th>Address</th>
-                <th>Hospital</th>
+
                 <th>Phone</th>
                 <th>Gender</th>
                 <th>Age</th>
@@ -106,8 +106,6 @@
 
                     <td><a style="font-weight: bold" href="/patient/{{$row->ID}}">{{$row->Name}}</a></td>
                     <td>{{$row->Address}}</td>
-                    <td>{{$row->HospitalName}}</td>
-
                     <td class="">{{$row->Phone}}</td>
                     <td class="">{{$row->Gender}}</td>
                     <td class="">{{$row->Age}}</td>

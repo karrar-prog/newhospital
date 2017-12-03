@@ -45,7 +45,6 @@
                         <input name="fileNumber" type="text">
                     </div>
 
-                    @include("dropdown.doctors" , ["doctors" => $doctors])
 
                     <div class="field">
                         <label>Phone</label>
@@ -65,7 +64,7 @@
 
                     @include("dropdown.sd")
 
-                    @include("dropdown.diagnose")
+
 
 
                 </div>
@@ -87,19 +86,9 @@
 
                     @include("dropdown.crf")
 
-                    <div class="field">
-                        <label>Personal ID</label>
-                        <input name="personalId" type="text">
-                    </div>
-
-                    <div class="field">
-                        <label>Hospital</label>
-                        <input name="hospital" type="text">
-                    </div>
 
                 </div>
 
-                @include("patient.disease_type")
 
             </div>
 
@@ -124,7 +113,7 @@
                 fields: {
                     patientName     : 'empty',
                     fileNumber   : 'empty',
-                    doctorName : 'empty',
+
                     phone : 'empty',
                     age   : 'empty',
                     gender    : 'empty' ,
@@ -132,15 +121,15 @@
                     work    : 'empty' ,
                     sd    : 'empty' ,
                     status    : 'empty' ,
-                    diagnose    : 'empty' ,
+
                     diagnoseMethod    : 'empty' ,
-                    diseaseType    : 'empty' ,
+
                     diseaseReason    : 'empty' ,
                     //liverBioposy    : 'empty' ,
                     //fibroscan    : 'empty' ,
                     dm    : 'empty' ,
                     crf    : 'empty' ,
-                    personalId    : 'empty' ,
+
                     hospital    : 'empty'
 
                 }
@@ -152,7 +141,6 @@
             $("input[name='fileNumber']").val('{{$patient->FileNumber}}');
             $("input[name='phone']").val('{{$patient->Phone}}');
             $("input[name='age']").val('{{$patient->Age}}');
-            $("#doctorsDropdown").dropdown("set selected" , '{{$patient->DoctorName}}');
             $("#genderDropdown").dropdown("set selected" , '{{$patient->Gender}}');
             $("#addressDropdown").dropdown("set selected" , '{{$patient->Address}}');
             $("#workDropdown").dropdown("set selected" , '{{$patient->Work}}');
@@ -162,12 +150,10 @@
             $("#diseaseReasonDropdown").dropdown("set selected" , '{{$patient->DiseaseReason}}');
             $("#liverBiopsyDropdown").dropdown("set selected" , '{{$patient->LiverBioposy}}');
             $("#fibroscanDropdown").dropdown("set selected" , '{{$patient->Fibroscan}}');
-            $("#diagnoseDropdown").dropdown("set selected" , '{{$patient->Diagnose}}');
+
             $("#dmDropdown").dropdown("set selected" , '{{$patient->DM}}');
             $("#crfDropdown").dropdown("set selected" , '{{$patient->CRF}}');
-            $("input[name='hospital']").val('{{$patient->HospitalName}}');
-            $("input[name='personalId']").val('{{$patient->PersonalID}}');
-            $("input[name='diseaseType']").val('{{$patient->DiseaseType}}');
+
 
         });
 

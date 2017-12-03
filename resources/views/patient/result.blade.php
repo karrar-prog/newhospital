@@ -106,7 +106,6 @@
             <tr>
                 <th>Name</th>
                 <th>Address</th>
-                <th>Hospital</th>
                 <th>First PCR</th>
                 <th>First Visit Treatment 1</th>
                 <th>First Visit Treatment 2</th>
@@ -133,7 +132,7 @@
                 <tr>
                     <td><a style="font-weight: bold" href="/patient/{{$row->ID}}">{{$row->Name}}</a></td>
                     <td>{{$row->Address}}</td>
-                    <td>{{$row->HospitalName}}</td>
+
 
                     <td class="first pcr">{{$row->FirstPCR}}</td>
                     <td class="first">{{$row->FirstVisitTreatment1}}</td>

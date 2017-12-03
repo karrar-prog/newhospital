@@ -62,18 +62,18 @@
                 <tr><td>Work</td><td>{{$patient["Work"]}}</td></tr>
                 <tr><td>Scientific Degree</td><td>{{$patient["SD"]}}</td></tr>
                 <tr><td>Status</td><td>{{$patient["Status"]}}</td></tr>
-                <tr><td>Diagnose</td><td>{{$patient["Diagnose"]}}</td></tr>
+
                 <tr><td>Way Of Diagnoses</td><td>{{$patient["DiagnoseMethod"]}}</td></tr>
-                <tr><td>Disease Type</td><td>{{$patient["DiseaseType"]}}</td></tr>
+
                 <tr><td>Disease Reason</td><td>{{$patient["DiseaseReason"]}}</td></tr>
-                <tr><td>Doctor Name</td><td>{{$patient["DoctorName"]}}</td></tr>
+
                 <tr><td>Liver-Biopsy</td><td>{{$patient["LiverBioposy"]}}</td></tr>
                 <tr><td>Fibroscan</td><td>{{$patient["Fibroscan"]}}</td></tr>
                 <tr><td>DM</td><td>{{$patient["DM"]}}</td></tr>
                 <tr><td>CRF</td><td>{{$patient["CRF"]}}</td></tr>
                 <tr><td>Registration Date</td><td>{{$patient["RegisterDate"]}}</td></tr>
-                <tr><td>Hospital</td><td>{{$patient["HospitalName"]}}</td></tr>
-                <tr><td>Personal ID Number</td><td>{{$patient["PersonalID"]}}</td></tr>
+
+
 
             </tbody>
 

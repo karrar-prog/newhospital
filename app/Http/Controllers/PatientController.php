@@ -19,14 +19,7 @@ class PatientController extends Controller
     public function isExist()
     {
 
-        $personalId = $this->convertArabicNumbersToEnglishNumbers(Input::get("PersonalID", ""));
-        $address = Input::get("Address", "");
 
-        $patient = Patient::where("PersonalID", $personalId)->where("Address", $address)->get();
-
-        if (count($patient) > 0)
-            return ["exist" => true];
-        else
             return ["exist" => false];
 
     }
@@ -34,16 +27,14 @@ class PatientController extends Controller
     public function save()
     {
 
-        $personalId = $this->convertArabicNumbersToEnglishNumbers(Input::get("OPID", ""));
-        $address = Input::get("OA", "");
+//        $personalId = $this->convertArabicNumbersToEnglishNumbers(Input::get("OPID", ""));
+//        $address = Input::get("OA", "");
+//
+//        if (!empty($personalId) && !empty($address)) {
+//            $patient = Patient::where("PersonalID", $personalId)->where("Address", $address)->get()->first();
+//        } else
+        $patient = new Patient();
 
-        if (!empty($personalId) && !empty($address)) {
-            $patient = Patient::where("PersonalID", $personalId)->where("Address", $address)->get()->first();
-        } else
-            $patient = new Patient();
-
-        if ($patient == null)
-            $patient = new Patient();
 
         $this->fillPatientFromInput($patient);
         try {
@@ -63,15 +54,10 @@ class PatientController extends Controller
             return redirect("/login");
         }
 
-        if ($_SESSION["USER_TYPE"] == '3') {
 
-            $patients = Patient::orderBy("ID", "DESC")->limit(21)->get();
-            return view("patient.index")->with(["patients" => $patients]);
-        } else {
-            $hospitalName = $_SESSION["HOSPITAL_NAME"];
-            $patients = Patient::orderBy("ID", "DESC")->where("HospitalName", $hospitalName)->limit(21)->get();
-            return view("patient.index")->with(["patients" => $patients]);
-        }
+        $patients = Patient::orderBy("ID", "DESC")->limit(21)->get();
+        return view("patient.index")->with(["patients" => $patients]);
+
 
     }
 
@@ -100,17 +86,12 @@ class PatientController extends Controller
 
             return $this->index();
         }
-        if ($_SESSION["USER_TYPE"] == '3') {
-            $name = "%" . $name . "%";
 
-            $patients = Patient::where("Name", "LIKE", $name)->orderBy("ID", "DESC")->get();
-            return view("patient.index")->with(["patients" => $patients]);
-        } else {
-            $name = "%" . $name . "%";
-            $hospitalName = $_SESSION["HOSPITAL_NAME"];
-            $patients = Patient::where("Name", "LIKE", $name)->where("HospitalName", $hospitalName)->orderBy("ID", "DESC")->get();
-            return view("patient.index")->with(["patients" => $patients]);
-        }
+        $name = "%" . $name . "%";
+
+        $patients = Patient::where("Name", "LIKE", $name)->orderBy("ID", "DESC")->get();
+        return view("patient.index")->with(["patients" => $patients]);
+
 
     }
 
@@ -121,12 +102,9 @@ class PatientController extends Controller
             return redirect("/login");
         }
 
-        if ($_SESSION["USER_TYPE"] == 1 || $_SESSION["USER_TYPE"] == 3) {
-            $doctors = Doctor::all(["Name"])->toArray();
-        } else {
-            $doctors = Doctor::where("HospitalName", $_SESSION["HOSPITAL_NAME"])->get(["Name"])->toArray();
-        }
-        $hospital_names = Doctor::select(["HospitalName"])->groupBy('HospitalName')->get()->toArray();
+
+        $doctors = null;
+        $hospital_names = null;
         return view("patient.report", ["doctors" => $doctors, "hospital_names" => $hospital_names]);
     }
 
@@ -138,9 +116,6 @@ class PatientController extends Controller
         }
 
         $inputs = Input::all();
-        if ($_SESSION["USER_TYPE"] == '2') {
-            $inputs["HospitalName"] = $_SESSION["HOSPITAL_NAME"];
-        }
         // dd($inputs);
         $reporter = new PatientReporter($inputs);
         $result = $reporter->find();
@@ -165,15 +140,9 @@ class PatientController extends Controller
             return redirect("/login");
         }
 
-        $personalId = $this->convertArabicNumbersToEnglishNumbers(Input::get("PersonalID", ""));
-        $address = Input::get("address", "");
 
-        $patient = Patient::where("PersonalID", $personalId)->where("Address", $address)->get();
 
-        if (count($patient) > 0) {
-            $response = ["exist" => true, "name" => $patient[0]->Name];
-        } else
-            $response = ["exist" => false, "personalId" => $personalId, "address" => $address];
+            $response = ["exist" => false];
 
         return view("patient.check_exist")->with(["response" => $response]);
     }
@@ -189,18 +158,16 @@ class PatientController extends Controller
         $patient->Work = Input::get("Work", "");
         $patient->SD = Input::get("SD", "");
         $patient->Status = Input::get("Status", "");
-        $patient->Diagnose = Input::get("Diagnose", "");
+
         $patient->DiagnoseMethod = Input::get("DiagnoseMethod", "");
-        $patient->DiseaseType = Input::get("DiseaseType", "");
+
         $patient->DiseaseReason = Input::get("DiseaseReason", "");
-        $patient->DoctorName = Input::get("DoctorName", "");
+
         $patient->LiverBioposy = Input::get("LiverBioposy", "");
         $patient->Fibroscan = Input::get("Fibroscan", "");
         $patient->DM = Input::get("DM", "");
         $patient->CRF = Input::get("CRF", "");
         $patient->RegisterDate = Input::get("RegisterDate", "");
-        $patient->HospitalName = Input::get("HospitalName", "");
-        $patient->PersonalID = $this->convertArabicNumbersToEnglishNumbers(Input::get("PersonalID", ""));
 
     }
 
@@ -215,18 +182,16 @@ class PatientController extends Controller
         $patient->Work = Input::get("work", "");
         $patient->SD = Input::get("sd", "");
         $patient->Status = Input::get("status", "");
-        $patient->Diagnose = Input::get("diagnose", "");
+
         $patient->DiagnoseMethod = Input::get("diagnoseMethod", "");
-        $patient->DiseaseType = Input::get("diseaseType", "");
+
         $patient->DiseaseReason = Input::get("diseaseReason", "");
-        $patient->DoctorName = Input::get("doctorName", "");
+
         $patient->LiverBioposy = Input::get("liverBioposy", "");
         $patient->Fibroscan = Input::get("fibroscan", "");
         $patient->DM = Input::get("dm", "");
         $patient->CRF = Input::get("crf", "");
         $patient->RegisterDate = Carbon::now("Asia/Baghdad");
-        $patient->HospitalName =  Input::get("HospitalName", "");
-        $patient->PersonalID = $this->convertArabicNumbersToEnglishNumbers(Input::get("personalId", ""));
 
     }
 
@@ -238,15 +203,10 @@ class PatientController extends Controller
             return redirect("/login");
         }
 
-        if ($_SESSION["USER_TYPE"] == 1 || $_SESSION["USER_TYPE"] == 3) {
-            $doctors = Doctor::all(["Name"])->toArray();
-        } else {
-            $doctors = Doctor::where("HospitalName", $_SESSION["HOSPITAL_NAME"])->get(["Name"])->toArray();
-        }
-        //  $hospital_names =   $doctors = Doctor::all(["HospitalName"])->toArray();
-        $hospital_names = Doctor::select(["HospitalName"])->groupBy('HospitalName')->get()->toArray();
 
-        return view("patient.simple_report", ["doctors" => $doctors, "hospital_names" => $hospital_names]);
+
+
+        return view("patient.simple_report");
     }
 
     public function simpleReport()
@@ -257,9 +217,7 @@ class PatientController extends Controller
         }
 
         $inputs = Input::all();
-        if ($_SESSION["USER_TYPE"] == '2') {
-            $inputs["HospitalName"] = $_SESSION["HOSPITAL_NAME"];
-        }
+
 
         $reporter = new PatientReporter($inputs);
         $result = $reporter->findSimple();
@@ -269,7 +227,7 @@ class PatientController extends Controller
 
     public function showAddNew()
     {
-        $doctors = Doctor::where("HospitalName", $_SESSION["HOSPITAL_NAME"])->get(["Name"])->toArray();
+        $doctors = null;
         return view("patient.add_patient", ["doctors" => $doctors]);
     }
 
@@ -292,6 +250,7 @@ class PatientController extends Controller
             else
                 return redirect()->back()->withInput(Input::all());
         } catch (QueryException $e) {
+            dd($e);
             Session::flash("success", false);
             return redirect()->back()->withInput(Input::all());
         }
@@ -353,21 +312,12 @@ class PatientController extends Controller
         $patient = Patient::where("ID", "=", $id)->first();
         if (!$patient)
             return redirect("/");
-        $doctors = Doctor::all(["Name"])->toArray();
+        $doctors = null;
         return view("patient.update_patient", ["patient" => $patient, "doctors" => $doctors]);
     }
 
     public function update($id)
     {
-        $otherPatientWithSameIdentity = Patient::where("PersonalID", $this->convertArabicNumbersToEnglishNumbers(Input::get("personalId")))
-            ->where("Address", Input::get("Address"))
-            ->where("ID", "<>", $id)
-            ->get();
-
-        if (count($otherPatientWithSameIdentity) > 0) {
-            Session::flash("success", false);
-            return redirect()->back()->withInput(Input::all());
-        }
 
 
         $patient = Patient::where("ID", "=", $id)->first();
@@ -382,17 +332,17 @@ class PatientController extends Controller
 
     }
 
-    public function convertArabicNumbersToEnglishNumbers($string)
-    {
-        $persian = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
-        $arabic = ['٩', '٨', '٧', '٦', '٥', '٤', '٣', '٢', '١', '٠'];
-
-        $num = range(0, 9);
-        $convertedPersianNums = str_replace($persian, $num, $string);
-        $englishNumbersOnly = str_replace($arabic, $num, $convertedPersianNums);
-
-        return $englishNumbersOnly;
-    }
-
+//    public function convertArabicNumbersToEnglishNumbers($string)
+//    {
+//        $persian = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+//        $arabic = ['٩', '٨', '٧', '٦', '٥', '٤', '٣', '٢', '١', '٠'];
+//
+//        $num = range(0, 9);
+//        $convertedPersianNums = str_replace($persian, $num, $string);
+//        $englishNumbersOnly = str_replace($arabic, $num, $convertedPersianNums);
+//
+//        return $englishNumbersOnly;
+//    }
+//
 
 }

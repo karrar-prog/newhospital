@@ -14,12 +14,7 @@ class VisitController extends Controller
 
     public function visit()
     {
-        $personalID = Input::get("PersonalID" , "");
-        $address = Input::get("Address" , "");
 
-        $patient = Patient::where("PersonalID" , $personalID )->where("Address" , $address)->first();
-        if (!$patient)
-            return ["success" => false];
 
         $pcr = Input::get("PCR" , "");
 
@@ -28,7 +23,7 @@ class VisitController extends Controller
         $date = Input::get("Date" , Carbon::now("Asia/Baghdad"));
 
         $visit = new AllVisit();
-        $visit->Patient_ID = $patient->ID;
+        $visit->Patient_ID =0;
         $visit->PCR = $pcr;
         $visit->Treatment1 = $treatment1;
         $visit->Treatment2 = $treatment2;

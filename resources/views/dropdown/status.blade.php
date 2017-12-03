@@ -5,7 +5,7 @@
         <i class="dropdown icon"></i>
         <div class="default text">Status</div>
         <div class="menu">
-            <div class="item" data-value="على العلاج">منتظر العلاج</div>
+            <div class="item" data-value="منتظر العلاج">منتظر العلاج</div>
             <div class="item" data-value="على العلاج">على العلاج</div>
             <div class="item" data-value="تشمع الكبد">تشمع الكبد</div>
             <div class="item" data-value="اكمل العلاج">اكمل العلاج</div>
