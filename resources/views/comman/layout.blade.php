@@ -20,152 +20,66 @@
 <body>
 
 @if(isset($_SESSION["Login"]) && $_SESSION["Login"] == true )
-    @if(isset($_SESSION["USER_TYPE"]) && intval($_SESSION["USER_TYPE"]) == 3)
 
-        <div class="ui container">
-            <div class="ui small menu">
-                <div style="text-align: center;"><img style="margin: 0 auto;" src="{{asset("image/logo.gif")}}"
-                                                      class="ui rounded tiny image"></div>
-
-
-                <div class="ui dropdown item">
-                    Reports <i class="dropdown icon"></i>
-                    <div class="menu" >
-
-                        <a class="item" style=" width: 230px ; text-align: left">
-
-                            <a style="width: 220px ; text-align: left" href="/patient/report" class="ui green left icon button">
-                                <i class="large bar chart icon"></i>
-                                Report With PCR
-                            </a>
-                        </a>
-
-                        <a class="item" style="text-align: left; width: 230px">
-                            <a style="width: 220px ; text-align: left" href="/patient/simple-report" class="ui green left icon button">
-                                <i class="large line chart icon"></i>
-                                General Report
-                            </a>
-                        </a>
-
-                        <a class="item" style="text-align: left; width: 230px">
-                            <a style="width: 220px ; text-align: left" href="/patient/exist" class="ui green right icon button">
-                                <i class="large find icon"></i>
-                                Check By(ID & Address)
-                            </a>
-                        </a>
-
-
-                        <a class="item" style="text-align: left; width: 230px">
-                            <a style="width: 220px ; text-align: left ; margin-bottom: 10px" href="/patient" class="ui green right icon button">
-                                <i class="large search icon"></i>
-                                Check By Name
-                            </a>
-                        </a>
-
-
-
-                    </div>
-                </div>
-
+    @if(isset($_SESSION["USER_TYPE"]) && intval($_SESSION["USER_TYPE"]) == 1)
+        <div class="ui right aligned container">
+            <div class="ui right labeled icon menu">
+                <a class="left item" href="/logout" class="ui green center right icon button">
+                    <i class="large sign out icon"></i>
+                    تسجيل خروج
+                </a>
 
                 <div class="right menu">
-                    <a class="item" href="/logout" class="ui green center right icon button">
-                        <i class="large sign out icon"></i>
-                        Logout
+
+
+                    <a href="/patient/simple-report" class="item">
+                        <i class="pie chart  icon"></i>
+                        تقارير
                     </a>
-                </div>
+
+                <a href="/patient" class="item">
+                    <i class="users icon"></i>
+                    ملفات المرضى
+                </a>
+                <a href="/patient/add-new" class="item">
+                    <i class="add user icon"></i>
+                    اضافة مريض
+                </a>
+
+
 
 
             </div>
 
-
+            </div>
         </div>
 
-        </div>
+
+
     @else
+
         <div class="ui container">
-            <div class="ui small menu">
-              
-                <div class="ui dropdown item">
-                    Patients <i class="dropdown icon"></i>
-                    <div class="menu">
-
-                        <a class="item">
-                            <a style="width: 180px ; text-align: left" href="/patient/exist"
-                               class="ui green right icon button">
-                                <i class="large find icon"></i>
-                                Check Exist
-                            </a>
-                        </a>
-                        <a class="item">
-                            <a style="width: 180px ; text-align: left" href="/patient/add-new"
-                               class="ui green right icon button">
-                                <i class="large add user icon"></i>
-                                Add New
-                            </a>
-                        </a>
-                        <a class="item">
-                            <a style="width: 180px ; text-align: left" href="/patient"
-                               class="ui blue green icon button">
-                                <i class="large  users icon"></i>
-                                All Patient
-                            </a>
-                        </a>
-
-
-                    </div>
-                </div>
-                <div class="ui dropdown item">
-                    Reports <i class="dropdown icon"></i>
-                    <div class="menu">
-
-
-                        <a class="item">
-                            <a style="width: 180px ; text-align: left" href="/patient/report"
-                               class="ui green left icon button">
-                                <i class="large bar chart icon"></i>
-                                Report With PCR
-                            </a>
-                        </a>
-
-                        <a class="item">
-                            <a style="width: 180px ; text-align: left" href="/patient/simple-report"
-                               class="ui green left icon button">
-                                <i class="large line chart icon"></i>
-                                General Report
-                            </a>
-                        </a>
-
-                    </div>
-                </div>
-                <div class="ui dropdown item">
-                    Doctors <i class="dropdown icon"></i>
-                    <div class="menu">
-                        <a class="item">
-                            <a style="width: 180px ; text-align: left" href="/newdoctor"
-                               class="ui green right icon button">
-                                <i class="large doctor icon"></i>
-                                Add New
-                            </a>
-                        </a>
-
-
-
-
-                    </div>
-
-
-
-                </div>
+            <div class="ui labeled icon menu">
+                <a href="/patient" class="item">
+                    <i class="users icon"></i>
+                    المرضى
+                </a>
+                <a href="/patient/add-new" class="item">
+                    <i class="add user icon"></i>
+                    اضافة مريض
+                </a>
+                <a href="/patient/simple-report" class="item">
+                    <i class="pie chart  icon"></i>
+                    تقارير
+                </a>
 
                 <div class="right menu">
                     <a class="item" href="/logout" class="ui green center right icon button">
                         <i class="large sign out icon"></i>
-                        Logout
+                        تسجيل خروج
                     </a>
                 </div>
             </div>
-
         </div>
 
     @endif

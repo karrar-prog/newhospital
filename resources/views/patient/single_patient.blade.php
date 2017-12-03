@@ -28,17 +28,28 @@
         <div class="ui hidden divider"></div>
 
         <form action="/patient/search" method="post" class="ui form">
+            <div class="three column row">
+                <div class="column">
+                    <input  style="text-align: right ; width: 300px" name="search" type="text" placeholder="الاسم">
+                </div>
+                <div class="column">
+                    <button style="text-align: right" class="ui green icon button">بحث</button>
+                </div>
+                <div class="column">
 
-            <div class="inline field ">
-                <input  name="search" type="text" placeholder="Part of the name">
-                <button class="ui green icon button"><i class="search icon"></i></button>
+                </div>
+            </div>
+
+            <div class=" inline field ">
+
+
             </div>
 
         </form>
 
-        <div class="ui small header right floated">Do You Want To :
-            <a class="ui small blue button" href="/patient/update/{{$patient->ID}}">Update</a>
-            <a class="ui small red button" href="/patient/delete/{{$patient->ID}}">Delete</a>
+        <div class="ui small header right floated">
+            <a class="ui  button" href="/patient/update/{{$patient["ID"]}}"> <i class=" green edit icon"></i>تعديل</a>
+            <a class="ui  button" href="/patient/delete/{{$patient["ID"]}}"> <i class="red Remove User icon"></i>مسح</a>
         </div>
 
         <table class="ui stripped celled table">
@@ -79,7 +90,7 @@
 
         </table>
 
-        @if(count($visits) > 0)
+        @if(count($visits) < 0)
 
             <div class="ui large blue label">Visits</div>
             <table class="ui stripped celled table">
@@ -109,7 +120,7 @@
             </table>
 
         @else
-            <div class="ui warning message">Patient Has No Visit</div>
+
         @endif
 
 

@@ -13,8 +13,8 @@
 
         <div class="ui inverted yellow segment">
 
-            <div class="ui large header">Please Conform The Operation . </div>
-            <div class="ui medium header">Are You Sure To Delete Patient : {{$patient->Name}}</div>
+            <div class="ui large header">الرجاء الاختيار . </div>
+            <div class="ui medium header">هل انت متأكد من حذف المريض :   {{$patient->Name}}</div>
 
             <div style="text-align: center;">
                 <a class="ui red button" href="/patient/delete-now/{{$patient->ID}}">Delete</a>

@@ -10,7 +10,7 @@
 
         <div class="ui hidden divider"></div>
 
-        <div class="ui blue inverted segment">
+        <div class="ui segment">
             <div class="ui center aligned large header">
                 Add Patient
             </div>
